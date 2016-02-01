@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Assignment 1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link href="/assignment/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WebDev</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="btn-danger"> <a href="home.html" style="color: white">Log-out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="home.html">Home </a></li>
+                <li><a href="#">Profile</a></li>
+                <li class="active"><a href="#">Admin</a></li>
+                <li><a href="#">Forms</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header"> Admin </h1>
+            <h2 class="sub-header">Users</h2><br>
+            <table class="table table-striped">
+            <thead>
+            <tr>
+                <th> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Username </th>
+                <th> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Password </th>
+                <th> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Role </th>
+                <th> <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Action </th>
+            </tr>
+            <tr>
+                <th> <input type="text" class="form-control" placeholder="Username"> </th>
+                <th> <input type="password" class="form-control" placeholder="Password"> </th>
+                <th> <input type="text" class="form-control" placeholder="Role1, Role2"> </th>
+                <th> <a href="#"><span class="glyphicon glyphicon-plus" style="font-size: 25px" aria-hidden="true"></span></a>&nbsp; &nbsp;
+                    <a href="#"><span class="glyphicon glyphicon-ok" style="font-size: 25px; color: green" aria-hidden="true"></span></a> </th>
+            </tr>
+            </thead>
+                <tbody>
+                <tr>
+                    <td> Alice</td>
+                    <td> </td>
+                    <td> Student</td>
+                    <td><a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: crimson" aria-hidden="true"></span></a>&nbsp; &nbsp;
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 25px" aria-hidden="true"></span></a> </td>
+                </tr>
+                <tr>
+                    <td> Bob</td>
+                    <td> </td>
+                    <td> Faculty | Admin </td>
+                    <td> <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: crimson" aria-hidden="true"></span></a>&nbsp; &nbsp;
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 25px" aria-hidden="true"></span></a></td>
+                </tr>
+                <tr>
+                    <td> Charlie</td>
+                    <td> </td>
+                    <td> </td>
+                    <td><a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: crimson" aria-hidden="true"></span></a>&nbsp; &nbsp;
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 25px" aria-hidden="true"></span></a> </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+</html>
