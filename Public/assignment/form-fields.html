@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Assignment 1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link href="/assignment/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WebDev</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="btn-danger"> <a href="home.html" style="color: white">Log-out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="home.html">Home </a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li class="active"><a href="forms.html">Forms</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="forms.html">Forms</a></li>
+                <li role="presentation" class="active"><a href="#">Fields</a></li>
+            </ul>
+            <br>
+            <h1 class="page-header"> Forms </h1>
+            <form>
+                <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="fname1">First Name:</label>
+                    <input type="text" class="form-control" id="fname1" placeholder="First Name">
+                </div>
+                <div class=" col-xs-6"><br>
+                    <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                    <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                    <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                    <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                </div>
+                    </div>
+                <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="lname1">Last Name:</label>
+                    <input type="text" class="form-control" id="lname1" placeholder="Last Name">
+                </div>
+                    <div class="col-xs-6"><br>
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="dob">Date Of Birth:</label>
+                    <input type="date" class="form-control" id="dob">
+                </div>
+                    <div class="col-xs-6"><br>
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="gen">Gender:</label>
+                    <select class="form-control" id="gen">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                    <div class="col-xs-6"><br>
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-xs-6">
+            <label>Roles:</label>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    Admin
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    Student
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    User
+                </label>
+            </div>
+                </div>
+                    <div class="col-xs-6"><br>
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-xs-6">
+            <label class="">License Agreement:</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Yes
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    No
+                </label>
+            </div>
+                    </div>
+                    <div class="col-xs-6"><br>
+                        <a href="#"><span class="glyphicon glyphicon-pencil" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-remove" style="font-size: 25px; color: #d9534f" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 23px" aria-hidden="true"></span></a>
+                        <a href="#"> <span class="glyphicon glyphicon-align-justify" style="font-size: 23px" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label for="gen1">Add New Field:</label>
+                    <select class="form-control" id="gen1">
+                        <option>Single Line Text</option>
+                        <option>Date</option>
+                        <option>Dropdown</option>
+                        <option>Checkboxes</option>
+                        <option>Radio-buttons</option>
+                        <option>Paragraph Text Field</option>
+                    </select>
+                </div>
+                <div class="col-xs-6"><br>
+                    <a href="#"> <span class="glyphicon glyphicon-plus" style="font-size: 25px ; color: #5cb85c" aria-hidden="true"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+</html>
