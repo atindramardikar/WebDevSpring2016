@@ -1,0 +1,56 @@
+<div class="container">
+    <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
+    <legend>Schedule an Event</legend>
+    <div style="font-size: medium">
+
+        <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Time Proposal &nbsp;</strong><span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        Settings
+        <br>
+        <br>
+    </div>
+    <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>
+                    Time 1
+                </th>
+                <th>
+                    Time 2
+                </th>
+                <th>
+                    Time 3
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="glyphicon glyphicon-trash btn btn-danger" aria-hidden="true"></span>
+                </td>
+                <td>
+                    Tue, 03/29/2016
+                </td>
+                <td>
+                    <input type="time" class="form-control">
+                </td>
+                <td>
+                    <input type="time" class="form-control">
+                </td>
+                <td>
+                    <input type="time" class="form-control">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-5">
+                <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
+                <button ng-click="$location.url('/settings')" type="submit" class="btn btn-primary">Next</button>
+            </div>
+</div>
+</div>

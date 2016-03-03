@@ -1,0 +1,45 @@
+<div>
+    <legend>Log In</legend>
+<div align="center">
+<input type="image" src="css/btn_google_signin_dark_normal_web@2x.png" width="200" height="50">
+    &nbsp;&nbsp;
+<input type="image" src="css/fb.png" width="200" height="50"><br>
+   <p> -------------OR-------------</p>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" style="padding-bottom: 10px">
+            <a href="#"> Forgot Password?</a>
+            </div>
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button ng-click="$location.url('/profile')" type="submit" class="btn btn-primary">Log in</button>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        Not yet have an account?
+        <a href="#" data-toggle="modal" data-target="#dialog1" data-dismiss="modal"> Sign Up </a>
+    </div>
+
+</div>
