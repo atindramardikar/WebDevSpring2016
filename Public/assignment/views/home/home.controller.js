@@ -1,3 +1,9 @@
-/**
- * Created by atindramardikar on 28/02/16.
- */
+(function(){
+    angular
+        .module("FormBuilderApp")
+        .controller("HomeController",HomeController);
+
+    function HomeController($scope) {
+
+    }
+})();

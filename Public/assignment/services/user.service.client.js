@@ -28,39 +28,53 @@
                 }
             ],
 
-            findUserByUsernameAndPassword: findUserByUsernameAndPassword,
+            findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUser: updateUser
+            updateUser: updateUser,
+            findUserByUsername: findUserByUsername
         };
         return model;
 
-        function findUserByUsernameAndPassword(username,password,callback){
-
+        function findUserByCredentials(username,password,callback) {
+            for (var u in model.users) {
+                if (model.users[u].username === username &&
+                    model.users[u].password === password) {
+                    callback(model.users[u]);
+                }
+            }
         }
         function findAllUsers(callback){
-
+            callback(model.users);
         }
         function createUser(user,callback){
             model.users.push(user);
             callback(user);
         }
-        function deleteUserById(userId,callback){}
+        function deleteUserById(userId,callback){
 
-        function updateUser(userId,user,callback){
+        }
 
-            for(var i=0;i<model.users.length;i++){
-                if(model.users._id[i]==userId){
-                    var tempuser=model.user[i];
+        function updateUser(userId,currentUser,callback){
+
+            var user = model.findUserByUsername (currentUser.username);
+            if (user != null) {
+                user.username = currentUser.username;
+                user.firstName = currentUser.firstName;
+                user.lastName = currentUser.lastName;
+                user.password = currentUser.password;
+            }
+            callback(user);
+        }
+
+        function findUserByUsername (username) {
+            for (var u in model.users) {
+                if (model.users[u].username === username) {
+                    return model.users[u];
                 }
             }
-            if(tempuser!=null){
-                    tempuser.username=user.username,
-                    tempuser.firstName=user.firstName,
-                    tempuser.lastName=user.lastName,
-                    tempuser.email=user.email
-            }
+            return null;
         }
 
     }
