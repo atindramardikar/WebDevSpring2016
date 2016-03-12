@@ -1,11 +1,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-    $(function() {
-        $( "#datepicker" ).datepicker();
-    });
-</script>
+
 <div class="row">
     <div class="col-sm-6">
         <form class="form-horizontal">
@@ -27,7 +23,7 @@
                 <div class="form-group">
                     <label  class="col-lg-4 control-label">Name</label>
                     <div class="col-lg-8">
-                        <input type="password" class="form-control"  placeholder="Enter name">
+                        <input ng-model="currentUser.name" type="text" class="form-control"  placeholder="Enter name">
                     </div>
                 </div>
 
@@ -36,21 +32,21 @@
                 <div class="form-group">
                     <label class="col-lg-4 control-label">Language</label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="Enter language">
+                        <input ng-model="currentUser.language" type="text" class="form-control"  placeholder="Enter language">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-lg-4 control-label">Date of Birth</label>
                     <div class="col-lg-8">
-                        <input type="date" class="form-conrol">
+                        <input ng-model="currentUser.dob" type="date" class="form-conrol">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label  class="col-lg-4 control-label">Gender</label>
                     <div class="col-lg-8">
-                        <select class="form-control">
+                        <select ng-model="currentUser.gender" class="form-control">
                             <option>Female</option>
                             <option>Male</option>
                             <option>Other</option>
@@ -61,18 +57,18 @@
                 <div class="form-group">
                     <label  class="col-lg-4 control-label">Country</label>
                     <div class="col-lg-8">
-                        <select class="form-control">
-                            <option value="AF">Afghanistan</option>
-                            <option value="AX">Åland Islands</option>
-                            <option value="AL">Albania</option>
-                            <option value="DZ">Algeria</option>
-                            <option value="AS">American Samoa</option>
-                            <option value="AD">Andorra</option>
-                            <option value="AO">Angola</option>
-                            <option value="AI">Anguilla</option>
-                            <option value="AQ">Antarctica</option>
-                            <option value="AG">Antigua and Barbuda</option>
-                            <option value="AR">Argentina</option>
+                        <select ng-model="currentUser.country" class="form-control">
+                            <option >Afghanistan</option>
+                            <option >Åland Islands</option>
+                            <option >Albania</option>
+                            <option >Algeria</option>
+                            <option >American Samoa</option>
+                            <option >Andorra</option>
+                            <option >Angola</option>
+                            <option >Anguilla</option>
+                            <option >Antarctica</option>
+                            <option >Antigua and Barbuda</option>
+                            <option >Argentina</option>
                             <option value="AM">Armenia</option>
                             <option value="AW">Aruba</option>
                             <option value="AU">Australia</option>
@@ -107,7 +103,7 @@
                             <option value="CF">Central African Republic</option>
                             <option value="TD">Chad</option>
                             <option value="CL">Chile</option>
-                            <option value="CN">China</option>
+                            <option value="China">China</option>
                             <option value="CX">Christmas Island</option>
                             <option value="CC">Cocos (Keeling) Islands</option>
                             <option value="CO">Colombia</option>
@@ -317,7 +313,7 @@
 
                 <div class="form-group">
                     <div class="col-lg-8 col-lg-offset-4">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button ng-click="update(currentUser)" type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </fieldset>

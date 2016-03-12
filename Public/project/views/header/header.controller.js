@@ -3,13 +3,19 @@
         .module("EventSchedulerApp")
         .controller("HeaderController",HeaderController);
 
-    function HeaderController($scope){
+    function HeaderController($scope, $rootScope, $location){
         $scope.aboutStyle=null;
-            if($scope.$location.url()=="/about"){
-                $scope.aboutStyle =
-                {
-                    "color" : "black"
-                }
+        $scope.logout = logout;
+        if($scope.$location.url()=="/about"){
+            $scope.aboutStyle =
+            {
+                "color" : "black"
             }
+        }
+
+        function logout(){
+            $rootScope.currentUser=null;
+            $location.url("/home");
+        }
     }
 })();

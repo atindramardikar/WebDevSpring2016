@@ -21,7 +21,8 @@
                 templateUrl: "views/createEvent/settings.view.html",
             })
             .when("/login",{
-                templateUrl: "views/users/login.view.html"
+                templateUrl: "views/users/login.view.html",
+                controller : "LoginController"
             })
             .when("/dateProposal",{
                 templateUrl: "views/createEvent/dateProposal.view.html"
@@ -29,8 +30,20 @@
             .when("/invite",{
                 templateUrl: "views/createEvent/invite.view.html"
             })
+            .when("/pollCreated",{
+                templateUrl: "views/createEvent/pollCreated.view.html"
+            })
             .when("/profile",{
-                templateUrl: "views/users/profile.view.html"
+                templateUrl: "views/users/profile.view.html",
+                controller:"ProfileController"
+            })
+            .when("/myEvents",{
+                templateUrl: "views/myEvents/myEvents.view.html",
+                controller: "MyEventsController"
+            })
+            .when("/signUp",{
+                templateUrl: "views/users/signUp.view.html",
+                controller: "SignUpController"
             })
             .otherwise({
                 redirectTo: "/home"

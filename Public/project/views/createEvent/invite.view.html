@@ -1,0 +1,52 @@
+<div class="container">
+    <legend>Invite</legend>
+    <div style="font-size: medium">
+
+        <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Time Proposal &nbsp;</strong><span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Settings</strong>&nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+        <strong style="color: #428bca">Invite</strong>
+        <br>
+        <br>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1">
+        <h3>Sharing settings</h3>
+        <div class="form-group">
+            <label class="col-lg-10 control-label">Decide who can participate in your poll</label><br>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio"  checked="">
+                        Everyone with a link can participate
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" >
+                        Only people with a link can participate
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-10 col-lg-offset-1">
+        <h3>Invite Participants</h3>
+    </div>
+
+    <div class="col-lg-6 col-lg-offset-1">
+        Type the e-mail addresses here:<br><br>
+        <textarea class="form-control" rows="3"></textarea><br>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button ng-click="$location.url('/settings')" type="reset" class="btn btn-default">Back</button>
+            <button ng-click="$location.url('/pollCreated')" type="submit" class="btn btn-primary">Finish</button>
+        </div>
+    </div>
+</div>

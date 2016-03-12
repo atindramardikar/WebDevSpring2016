@@ -13,13 +13,46 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                <li ng-style="aboutStyle"><a href="#/about"> About</a> </li>
-                <li><a data-toggle="modal" data-target="#dialog" href="#/login">
-                    <span class="glyphicon glyphicon-log-in" style="font-size: 15px" aria-hidden="true"></span>
-                    &nbsp;Sign Up | Login</a></li>
+
+                <li ng-style="aboutStyle">
+                    <a href="#/about">
+                        About
+                    </a>
+                </li>
+
+                <li ng-hide="currentUser">
+                    <a data-toggle="modal" data-target="#dialog" href="#/login">
+                        <span class="glyphicon glyphicon-log-in" style="font-size: 15px" aria-hidden="true"></span>
+                        &nbsp;
+                        Sign Up | Login
+                    </a>
+                </li>
+
+                <li ng-show="currentUser" ng-class="{'active': $location.url()=='/myEvents'}">
+                    <a href="#/myEvents">
+                        My Events
+                    </a>
+                </li>
+
+                <li ng-show="currentUser" ng-class="{'active': $location.url()=='/event'}">
+                    <a href="#/event">
+                        Schedule an Event
+                    </a>
+                </li>
+
+                <li ng-show="currentUser" ng-class="{'active': $location.url()=='/profile'}">
+                    <a href="#/profile">
+                        Profile
+                    </a>
+                </li>
+
+                <li ng-click="logout()" ng-show="currentUser">
+                    <a href="#/home">
+                        Logout
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
 </nav>
-
-
