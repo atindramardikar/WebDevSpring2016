@@ -1,4 +1,4 @@
-module.exports = function(app, model) {
+module.exports = function(app, userModel) {
         app.get('/api/assignment/user', userRouter);
         app.post('/api/assignment/user',createUser);
         app.get("/api/assignment/user/:id", findUserById);
@@ -22,30 +22,31 @@ module.exports = function(app, model) {
             username: req.query.username,
             password: req.query.password
         }
-        var user = model.findUserByCredentials(credentials);
+        var user = userModel.findUserByCredentials(credentials);
         console.log(user);
         res.json(user);
     }
 
     function findUserByUsername(req, res){
-        var user = model.findUserByUsername(credentials);
+        var user = userModel.findUserByUsername(credentials);
         res.json(user);
     }
 
     function getUsers(req,res){
-        var users= model.getUsers();
+        var users= userModel.getUsers();
         res.json(users);
     }
 
     function createUser(req,res){
         var newUser = req.body;
-        var users = userModel.createUser(newUser);
-        res.json(users);
+        var user = userModel.createUser(newUser);
+        res.json(user);
     }
 
     function updateUser(req, res) {
         var user = req.body;
         var userId = req.params.id;
+        console.log(user.username + userId);
         res.json(userModel.updateUser(userId, user));
     }
 

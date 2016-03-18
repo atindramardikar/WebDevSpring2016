@@ -4,7 +4,7 @@
         .controller("LoginController",LoginController);
 
     function LoginController(UserService, $location) {
-
+        var vm= this;
         vm.login = login;
 
         function init() {

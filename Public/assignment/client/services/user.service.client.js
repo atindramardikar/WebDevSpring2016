@@ -44,11 +44,12 @@
         function createUser(user){
             return $http.post("/api/assignment/user",user);
         }
-        function deleteUserById(userID){
+        function deleteUserById(userId){
             return $http.delete("/api/assignment/user/" + userId);
         }
 
-        function updateUser(userId,currentUser){
+        function updateUser(userId,user){
+            console.log("in user services")
             console.log(user);
             return $http.put("/api/assignment/user/" + userId, user);
         }

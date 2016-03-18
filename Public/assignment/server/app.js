@@ -1,4 +1,6 @@
-module.exports = function(app) {
-    var model   = require("./models/user.model.server.js")();
-    var service = require("./services/user.service.server.js")(app, model);
+module.exports = function(app,uuid) {
+    var usermodel = require("./models/user.model.js")(uuid);
+    var formmodel = require("./models/form.model.js")(uuid);
+    var userservice = require("./services/user.service.server.js")(app, usermodel);
+    var formservice = require("./services/form.service.server.js")(app, formmodel);
     }
