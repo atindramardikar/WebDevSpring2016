@@ -26,7 +26,8 @@
             })
             .when("/login",{
                 templateUrl: "views/users/login.view.html",
-                controller: "LoginController"
+                controller: "LoginController",
+                controllerAs:"model"
             })
             .when("/fields",{
                 templateUrl: "views/forms/fields.view.html"
