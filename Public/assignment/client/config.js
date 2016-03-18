@@ -11,7 +11,8 @@
             })
             .when("/profile",{
                 templateUrl: "views/users/profile.view.html",
-                controller:"ProfileController"
+                controller:"ProfileController",
+                controllerAs:"model"
             })
             .when("/forms",{
                 templateUrl: "views/forms/forms.view.html",

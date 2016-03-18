@@ -3,22 +3,36 @@
         .module("FormBuilderApp")
         .controller("FormController",FormController);
 
-    function FormController($location, $scope, FormService, $rootScope) {
-        $scope.addForm = addForm
-        $scope.updateForm = updateForm
-        $scope.selectForm = selectForm
-        $scope.deleteForm = deleteForm
-        getFormsforUser();
+    function FormController($location, FormService, $rootScope) {
+
+        var vm = this;
+
+        vm.deleteForm = deleteForm;
+        vm.addForm = addForm;
+        vm.updateForm = updateForm;
+        vm.selectForm = selectForm;
+        vm.userForms = [];
+        vm.form = null;
+
+        function init () {
+            FormService
+                .findAllFormsForUser($rootScope.currentUser._id)
+                .then(renderForms);
+        }
+
+        function renderForms(response){
+            vm.userforms = response.data;
+        }
 
         function getFormsforUser(){
-        FormService.findAllFormsForUser($rootScope.currentUser._id, function(userForms){
+            FormService.findAllFormsForUser($rootScope.currentUser._id, function(userForms){
             $scope.userForms=userForms;
         })
         }
 
         function addForm(form) {
-          FormService.createFormForUser($rootScope.currentUser._id,form,function(form){
-              getFormsforUser();
+            FormService.createFormForUser($rootScope.currentUser._id,form,function(form){
+            getFormsforUser();
           })
         }
 

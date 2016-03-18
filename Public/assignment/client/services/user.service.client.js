@@ -3,10 +3,13 @@
         .module("FormBuilderApp")
         .factory("UserService", UserService);
 
-    function UserService($http) {
+    function UserService($http, $rootScope) {
         var api = {
             findUserByCredentials: findUserByCredentials,
+            setCurrentUser: setCurrentUser,
+            getCurrentUser: getCurrentUser,
             findAllUsers: findAllUsers,
+            findUserById: findUserById,
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
@@ -15,46 +18,42 @@
         return api;
 
         function findUserByCredentials(credentials) {
-            console.log(credentials);
-            return $http.post('/api/assignment/user',credentials);
-
-            //for (var u in model.users) {
-              //  if (model.users[u].username === username &&
-                //    model.users[u].password === password) {
-                //}
-            //}
-        }
-        function findAllUsers(callback){
-            callback(model.users);
-        }
-        function createUser(user,callback){
-            model.users.push(user);
-            callback(user);
-        }
-        function deleteUserById(userId,callback){
-
-        }
-
-        function updateUser(userId,currentUser,callback){
-
-            var user = model.findUserByUsername (currentUser.username);
-            if (user != null) {
-                user.username = currentUser.username;
-                user.firstName = currentUser.firstName;
-                user.lastName = currentUser.lastName;
-                user.password = currentUser.password;
-            }
-            callback(user);
+            return $http.get("/api/assignment/user?username="+credentials.username +"&password="+credentials.password);
         }
 
         function findUserByUsername (username) {
-            for (var u in model.users) {
-                if (model.users[u].username === username) {
-                    return model.users[u];
-                }
-            }
-            return null;
+            return $http.get("/api/assignment/user?username="+username);
         }
+
+        function findUserById(userId){
+            return $http.get("/api/assignment/user/" + userId);
+        }
+
+        function setCurrentUser(user) {
+            $rootScope.currentUser = user;
+            console.log($rootScope.currentUser);
+        }
+
+        function getCurrentUser() {
+            return $rootScope.currentUser;
+        }
+
+        function findAllUsers(){
+            return $http.get("/api/assignment/user");
+        }
+        function createUser(user){
+            return $http.post("/api/assignment/user",user);
+        }
+        function deleteUserById(userID){
+            return $http.delete("/api/assignment/user/" + userId);
+        }
+
+        function updateUser(userId,currentUser){
+            console.log(user);
+            return $http.put("/api/assignment/user/" + userId, user);
+        }
+
+
 
     }
 })();

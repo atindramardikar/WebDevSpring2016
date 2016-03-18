@@ -4,6 +4,16 @@
         .controller("ProfileController",ProfileController);
 
     function ProfileController($location, $scope, UserService, $rootScope) {
+        var vm = this;
+
+        function init() {
+            var currentUser = UserService.getCurrentUser();
+            if (currentUser == null) {
+                $location.url("/home");
+            }
+        }
+        return init();
+
         $scope.update = update;
 
         function update(user) {
