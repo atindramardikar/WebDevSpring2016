@@ -58,10 +58,17 @@
                     <div class="input-group-btn" ng-include="'views/forms/button-option.html'"></div>
                 </div>
             </td>
+            <td ng-switch-when="DATE">
+                <label>{{field.label}}</label>
+                <div class="input-group">
+                    <input type="date" class="form-control" placeholder="{{field.placeholder}}">
+                    <div class="input-group-btn" ng-include="'views/forms/button-option.html'"></div>
+                </div>
+            </td>
             <td ng-switch-default>
                 <label>{{field.label}}</label>
                 <div class="input-group">
-                    <input type="date" placeholder="{{field.placeholder}}" class="form-control">
+                    <input type="text" class="form-control" placeholder="{{field.placeholder}}">
                     <div class="input-group-btn" ng-include="'views/forms/button-option.html'"></div>
                 </div>
             </td>
