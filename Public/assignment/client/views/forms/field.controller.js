@@ -81,7 +81,6 @@
 
         function translateFieldType(fieldType) {
             for (var k in optionMap) {
-                console.log(optionMap[k].key + " " + optionMap[k].value);
                 if (optionMap[k].key == fieldType){
                     return optionMap[k].value;
                 }
@@ -90,7 +89,6 @@
 
         function addField(fieldType) {
             var field = {"label": "", "type": translateFieldType(fieldType), "placeholder": "", "options": null};
-            console.log(field);
             FieldService
                 .createField(formId, field)
                 .then(init);
@@ -108,9 +106,7 @@
                 for (var o in ol) {
                     optionList.push(ol[o].label + ":" + ol[o].value)
                 }
-                console.log(optionList);
                 vm.optionText = optionList.join("\n");
-                console.log(vm.optionText);
             }
         }
 
@@ -121,7 +117,6 @@
 
             var optionArray = [];
             if (isOption) {
-                console.log(vm.optionText);
                 var oa = vm.optionText;
                 for (var o in oa) {
                     var a = oa[o].split(":");
@@ -135,7 +130,6 @@
             }
             else {
             }
-            console.log(vm.eField._id);
             FieldService
                 .updateField(formId, vm.eField._id, vm.eField)
                 .then(init);

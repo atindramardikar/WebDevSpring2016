@@ -26,7 +26,6 @@ module.exports = function(app, formModel) {
     }
 
     function createFormForUser(req, res) {
-        console.log("recieved request and building user");
         var userId = req.params.userId;
         var form = req.body;
         res.json(formModel.createFormForUser(userId, form));

@@ -50,8 +50,6 @@ module.exports = function (uuid) {
                 forms.splice(f, 1);
             }
         }
-        console.log("form.model.js");
-        console.log(forms);
     }
 
     function createFormForUser (userId, newForm) {
