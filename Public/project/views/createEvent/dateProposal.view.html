@@ -1,4 +1,5 @@
- <div class="register-login-form">
+<div>
+<div class="register-login-form">
 <div style="font-size: large">
 
     <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
@@ -9,14 +10,32 @@
     <br>
     <br>
 </div>
-
-<div class="form-group">
-    <div>
-        <uib-datepicker ng-model='activeDate' multi-select='selectedDates'></uib-datepicker>
-    </div>
-    <div class="col-lg-10 col-lg-offset-2">
-        <button ng-click="$location.url('/event')" type="reset" class="btn btn-default">Back</button>
-        <button ng-click="$location.url('/timeProposal')" type="submit" class="btn btn-primary">Next</button>
+     <table>
+         <tr>
+             <td>
+                 <uib-datepicker ng-model='app.activeDate' multi-select='selectedDates' select-range='{{app.type=="range"}}'></uib-datepicker>
+             </td>
+             <td style='width:50px'>
+             </td>
+             <td>
+                 <div ng-show="selectedDates.length>0">
+                     <strong>Selected Dates:</strong>
+                     <div>
+                         <div ng-repeat='d in selectedDates'>
+                             {{d | date : 'fullDate'}}
+                             <button class='btn btn-xs btn-warning' style='margin:5px' ng-click='app.removeFromSelected(d)'>Remove</button>
+                         </div>
+                     </div>
+                 </div>
+             </td>
+         </tr>
+     </table>
+    <br>
+     <div class="form-group">
+         <div class="col-lg-10 col-lg-offset-4">
+             <button ng-click="$location.url('/event')" type="reset" class="btn btn-default">Back</button>
+             <button ng-click="$location.url('/timeProposal')" type="submit" class="btn btn-primary">Next</button>
+         </div>
+     </div>
     </div>
 </div>
-    </div>

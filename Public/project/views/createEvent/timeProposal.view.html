@@ -21,29 +21,22 @@
                     Time 1
                 </th>
                 <th>
-                    Time 2
-                </th>
-                <th>
-                    Time 3
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr ng-repeat="d in selectedDates">
                 <td>
                     <span class="glyphicon glyphicon-trash" style="color: crimson; font-size: 20px" aria-hidden="true"></span>
                 </td>
                 <td>
-                    <strong>Tue, 03/29/2016</strong>
+                    <strong>{{d | date : 'fullDate'}}</strong>
                 </td>
                 <td>
                     <input class ="time-input" type="time"  class="form-control">
                 </td>
                 <td>
-                    <input class="time-input" type="time" class="form-control">
-                </td>
-                <td>
-                    <input class="time-input" type="time" class="form-control">
+                    <a href="">Add time slot</a>
                 </td>
             </tr>
             </tbody>

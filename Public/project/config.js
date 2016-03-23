@@ -25,7 +25,9 @@
                 controller : "LoginController"
             })
             .when("/dateProposal",{
-                templateUrl: "views/createEvent/dateProposal.view.html"
+                templateUrl: "views/createEvent/dateProposal.view.html",
+                controller: "DateController",
+                controllerAs: "app"
             })
             .when("/invite",{
                 templateUrl: "views/createEvent/invite.view.html"
