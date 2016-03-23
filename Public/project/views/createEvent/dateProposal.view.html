@@ -21,7 +21,7 @@
                  <div ng-show="selectedDates.length>0">
                      <strong>Selected Dates:</strong>
                      <div>
-                         <div ng-repeat='d in selectedDates'>
+                         <div ng-repeat='d in selectedDates | orderBy:identity:false'>
                              {{d | date : 'fullDate'}}
                              <button class='btn btn-xs btn-warning' style='margin:5px' ng-click='app.removeFromSelected(d)'>Remove</button>
                          </div>

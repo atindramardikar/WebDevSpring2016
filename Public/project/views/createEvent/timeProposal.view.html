@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="d in selectedDates">
+            <tr ng-repeat="d in selectedDates | orderBy:identity:false">
                 <td>
                     <span class="glyphicon glyphicon-trash" style="color: crimson; font-size: 20px" aria-hidden="true"></span>
                 </td>
