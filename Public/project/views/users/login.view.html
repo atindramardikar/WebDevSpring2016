@@ -1,15 +1,13 @@
-<div>
-    <legend>Log In</legend>
-    <div align="center">
+<div align="center">
+    <div class="register-login-form">
         <input type="image" src="css/btn_google_signin_dark_normal_web@2x.png" width="200" height="50">
         &nbsp;&nbsp;
         <input type="image" src="css/facebook.png" width="200" height="50"><br>
         <p> -------------OR-------------</p>
-    </div>
     <form class="form-horizontal">
 
         <div class="form-group">
-            <label  class="col-sm-2 control-label" style="color: black">Email</label>
+            <label  class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
                 <input ng-model="user.email" type="email" class="form-control"  placeholder="Email">
             </div>
@@ -22,7 +20,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-offset-2 col-sm-3">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox"> Remember me
@@ -30,8 +28,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-offset-2 col-sm-10" style="padding-bottom: 10px">
-            <a><strong style="color: midnightblue"> Forgot Password?</strong></a>
+        <div class="col-sm-offset-2 col-sm-3" style="padding-bottom: 10px">
+            <a style="color: midnightblue"> Forgot Password?</a>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -43,5 +41,5 @@
         No account yet?
         <a ng-click="noAccount()" href="#/signUp"> <strong style="color: midnightblue"> Sign Up </strong></a>
     </div>
-
+</div>
 </div>

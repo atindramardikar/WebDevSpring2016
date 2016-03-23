@@ -1,14 +1,9 @@
-<div  class="container">
+ <div class="register-login-form container">
     <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
-    <div class="row">
-        <div class="col-sm-6">
             <form class="form-horizontal">
-                <fieldset>
+                    <div style="font-size: large">
 
-                    <legend>Schedule an Event</legend>
-                    <div style="font-size: medium">
-
-                        <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+                        <strong style="color: #428bca"> Event</strong> &nbsp; <span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
                         Date Proposal &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
                         Time Proposal &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
                         Settings &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
@@ -33,7 +28,7 @@
                     <div class="form-group">
                         <label for="textArea" class="col-lg-4 control-label">Description</label>
                         <div class="col-lg-8">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                            <textarea class="form-control" rows="3" id="textArea" placeholder="Description"></textarea>
                         </div>
                     </div>
 
@@ -57,8 +52,5 @@
                             <button ng-click="$location.url('/dateProposal')" type="submit" class="btn btn-primary">Next</button>
                         </div>
                     </div>
-                </fieldset>
             </form>
         </div>
-    </div>
-</div>

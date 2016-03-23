@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.2/ui-bootstrap-tpls.min.js"></script>
     <link href="css/cover.css" rel="stylesheet">
-    <script src="multidate.js"></script>
+    <script src="gm.datepickerMultiSelect.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
     <script src="services/user.service.js"></script>
@@ -38,7 +40,7 @@
         }
     </script>
 </head>
-<body ng-controller="MainController" style="background-image: url(css/Calendar-600.jpg); background-repeat: no-repeat; background-size: 100%; color: black">
+<body ng-controller="MainController" class="background-img">
 <div ng-include="'views/header/header.view.html'"></div>
 <div class="container">
     <div>

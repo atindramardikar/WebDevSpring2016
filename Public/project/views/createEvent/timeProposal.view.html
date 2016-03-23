@@ -1,7 +1,7 @@
-<div class="container">
+<div>
+    <div class="register-login-form">
     <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
-    <legend>Time Proposal</legend>
-    <div style="font-size: medium">
+    <div style="font-size: large">
 
         <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
         <strong style="color: #428bca">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
@@ -31,29 +31,30 @@
             <tbody>
             <tr>
                 <td>
-                    <span class="glyphicon glyphicon-trash btn btn-danger" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-trash" style="color: crimson; font-size: 20px" aria-hidden="true"></span>
                 </td>
                 <td>
-                    Tue, 03/29/2016
+                    <strong>Tue, 03/29/2016</strong>
                 </td>
                 <td>
-                    <input type="time" class="form-control">
+                    <input class ="time-input" type="time"  class="form-control">
                 </td>
                 <td>
-                    <input type="time" class="form-control">
+                    <input class="time-input" type="time" class="form-control">
                 </td>
                 <td>
-                    <input type="time" class="form-control">
+                    <input class="time-input" type="time" class="form-control">
                 </td>
             </tr>
             </tbody>
         </table>
-
+</div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-5">
                 <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
                 <button ng-click="$location.url('/settings')" type="submit" class="btn btn-primary">Next</button>
             </div>
         </div>
-    </div>
+
 </div>
+    </div>

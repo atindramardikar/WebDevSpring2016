@@ -1,4 +1,4 @@
 (function(){
     angular
-        .module("EventSchedulerApp",["ngRoute"]);
+        .module("EventSchedulerApp",["ngRoute", "gm.datepickerMultiSelect"]);
 })();
