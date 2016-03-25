@@ -1,24 +1,382 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
-<meta name="google-signin-client_id" content="atindramardikar.apps.googleusercontent.com">
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<br>
-<br>
-<button class="btn btn-default" type="submit" style="background-color: #4267B2; color: white"><img src="css/FB-f-Logo__white_29.png" height="20px"> &nbsp;Login with Facebook</button>
-<br>
-<br>
-<div id="fb-root"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Just In Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="fb-login-button" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/normal.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+        if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+<div class="fix-header" id="home">
+    <div class="w-container">
+        <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400"></div>
+    </div>
+</div>
+<div class="fixed-header">
+    <div class="w-container container">
+        <div class="w-row">
 
-<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-<button class="btn btn-default" type="submit" style="background-color: #4285F4; color:white;font-family: 'Roboto', sans-serif; width: 180px"><img src="css/btn-google.png" height="20px"> &nbsp; Log in with Google </button>
-<input type="image" src="../project/css/btn_google_signin_dark_normal_web@2x.png" width="200" height="50">
-<input type="image" src="../project/css/fb.png" width="200" height="50">
+            <!--///////////////////////////////////////////////////////
+            // Logo section
+            //////////////////////////////////////////////////////////-->
+
+
+            <div class="w-col w-col-3 logo">
+                <a href="#"></a>
+            </div>
+
+            <!--///////////////////////////////////////////////////////
+           // End Logo section
+           //////////////////////////////////////////////////////////-->
+
+            <div class="w-col w-col-9">
+
+                <!--///////////////////////////////////////////////////////
+                // Menu section
+                //////////////////////////////////////////////////////////-->
+
+
+                <div class="w-nav navbar" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1">
+                    <div class="w-container nav">
+                        <nav class="w-nav-menu nav-menu" role="navigation">
+
+                            <a class="w-nav-link menu-li w-active" href="#home">HOME</a>
+                            <a class="w-nav-link menu-li" href="#about">ABOUT</a>
+                            <a class="w-nav-link menu-li" href="#service">FEATURES</a>
+                            <a class="w-nav-link menu-li"href="#team">LOG IN</a>
+                            <a class="w-nav-link menu-li" href="#contact">CONTACT</a>
+                        </nav>
+                        <div class="w-nav-button">
+                            <div class="w-icon-nav-menu"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--///////////////////////////////////////////////////////
+             // End Menu section
+             //////////////////////////////////////////////////////////-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///////////////////////////////////////////////////////
+     //  Slider section
+     //////////////////////////////////////////////////////////-->
+
+
+<div class="slidersection">
+    <div class="sp-slideshow">
+
+        <div class="sp-content clearfix">
+
+        </div><!-- sp-content -->
+
+    </div><!-- sp-slideshow -->
+</div>
+
+
+<!--///////////////////////////////////////////////////////
+       // End slider section
+       //////////////////////////////////////////////////////////-->
+
+
+
+<!--///////////////////////////////////////////////////////
+       // About section
+       //////////////////////////////////////////////////////////-->
+
+
+<div class="about-parlex" id="about">
+    <section class="parlex7-back">
+        <div class="w-container">
+            <div id="about-animation">
+                <div class="wrap">
+                    <div class="about">
+                        <h1 class="about-heading">ABOUT</h1>
+                        <div class="about-text">WHO WE ARE ?</div>
+                        <div class="sepreater"></div>
+                    </div>
+                    <p class="about-des">We are Elegance. We create stunning identities for our clients that people fall in love with.&nbsp;
+                        <br>Whether it's an app icon, a logo for a hot startup, or just an illustration, we'll work hard until you can't help but say "WOW!".
+                    </p>
+                    <img class="about-img" src="images/about.png"
+                         alt="52de15aa5d3566c14300015e_about.png">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!--///////////////////////////////////////////////////////
+       // End about section
+       //////////////////////////////////////////////////////////-->
+
+
+
+<!--///////////////////////////////////////////////////////
+       // Who We Are Section
+       //////////////////////////////////////////////////////////-->
+
+
+<div class="exp service-parlex">
+    <div class="exp-back">
+        <div class="w-container">
+            <div id="who-v-animation">
+                <div class="wrap">
+                    <div class="w-row exp-des">
+                        <div class="w-col w-col-6 exp-col1">
+                            <div class="col1-div">
+                                <div class="experinc-box">
+                                    <h3 class="experinc-box-h3">Who We Are</h3>
+                                    <p>At Elegance, we have highly skilled and professional team of dedicated web professionals to take care of your projects.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. </br> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <div class="buttons">
+                                        <div class="btn-ex-one">
+                                            <a class="ex-btn" href="#">Read More</a>
+                                        </div>
+                                        <div class="btn-ex-two">
+                                            <a class="ex-btn-two" href="#">Buy Now!</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-col w-col-6 exp-col2">
+                            <div class="col2-div">
+                                <img src="images/who-we-are.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--///////////////////////////////////////////////////////
+       // End Who We Are section
+       //////////////////////////////////////////////////////////-->
+
+
+
+
+
+
+<!--///////////////////////////////////////////////////////
+       // Service section
+       //////////////////////////////////////////////////////////-->
+
+
+<section class="service-parlex" id="service">
+    <section class="parlex-back">
+        <div class="w-container">
+            <div class="wrap">
+                <div class="service-combo">
+                    <div class="services">
+                        <h1 class="service-heading">SERVICES</h1>
+                        <div class="services-text">WHAT WE DO?</div>
+                        <div class="sepreater service"></div>
+                    </div>
+                    <div class="services-text">“ THE BEST RESULTS ARE OBTAINED BY TASKING THE RIGHT PEOPLE TO THE RIGHT PROJECT ”
+                        <br>We understand that everybody has their unique strengths and we put that knowledge to use by assembling the most efficient team possible for your project. You know your business better than anyone. Your insights, combined with our skills
+                        and creativity, will result in branding and marketing that truly stand out. We’re ready to get started.</div>
+                    <div class="w-row">
+                        <div class="w-col w-col-3 services-column">
+                            <div class="service-icon">
+                                <img src="images/services/Web-Design-Development.png">
+                            </div>
+                            <h4 class="service-head">WEB DESIGN &amp; DEVELOPMENT</h4>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="service-icon">
+                                <img src="images/services/Branding-Identity.png">
+                            </div>
+                            <h4 class="service-head">Branding/Positioning &amp; IDENTITY</h4>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="service-icon">
+                                <img src="images/services/Motion-Video.png">
+                            </div>
+                            <h4 class="service-head">Marketing Communications</h4>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="service-icon">
+                                <img src="images/services/UX-UI.png">
+                            </div>
+                            <h4 class="service-head">UI/UX Design<br>Mobile Design</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!--///////////////////////////////////////////////////////
+       // End Service section
+       //////////////////////////////////////////////////////////-->
+
+
+<!--///////////////////////////////////////////////////////
+       // Process section
+       //////////////////////////////////////////////////////////-->
+
+<div class="process-parlex">
+    <div class="parlex2-back">
+        <div class="w-container">
+            <div class="wrap">
+                <div class="process">
+                    <h1 class="our-process-heading">OUR PROCESS</h1>
+                    <div class="sepreater"></div>
+                </div>
+                <div class="process-text">
+                    <div class="process-text">Our process is straight forward, simple, &amp; successful.</div>
+                    <div class="w-row">
+                        <div class="w-col w-col-3">
+                            <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                                <a href="#set-1" class="hi-icon hi-icon-locked">Security</a>
+                            </div>
+                            <h4 class="our-process-sys">BRAINSTORM</h4>
+                            <p class="process-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo
+                                cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                                <a href="#set-1" class="hi-icon hi-icon-mobile">Mobile</a>
+                            </div>
+                            <h4 class="our-process-sys">PLAN</h4>
+                            <p class="process-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo
+                                cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                                <a href="#set-1" class="hi-icon hi-icon-screen">Desktop</a>
+                            </div>
+                            <h4 class="our-process-sys">DESIGN</h4>
+                            <p class="process-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo
+                                cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        </div>
+                        <div class="w-col w-col-3">
+                            <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                                <a href="#set-1" class="hi-icon hi-icon-earth">Partners</a>
+                            </div>
+                            <h4 class="our-process-sys">DEVELOP</h4>
+                            <p class="process-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo
+                                cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///////////////////////////////////////////////////////
+       // End Process section
+       //////////////////////////////////////////////////////////-->
+
+
+<!--///////////////////////////////////////////////////////
+       // Contact section
+       //////////////////////////////////////////////////////////-->
+
+<div class="contact-parlex" id="contact">
+    <div class="parlex8-back">
+
+        <div class="w-container">
+            <div class="w-row contact-col">
+                <div class="w-col w-col-4 contact-col1">
+                    <div>
+                        <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                            <a href="#set-5" class="hi-icon hi-icon-earth">Partners</a>
+                        </div>
+                        <h4 class="contact-col-head">Visit Us</h4>
+                    </div>
+                    <div>
+                        <div class="contact-col-text"> Northeastern University
+                            <br>Boston, MA 02115</div>
+                    </div>
+                </div>
+                <div class="w-col w-col-4 contact-col2">
+                    <div>
+                        <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                            <a href="#set-5" class="hi-icon hi-icon-mail">Partners</a>
+                        </div>
+                        <h4 class="contact-col-head">Mail us</h4>
+                    </div>
+                    <div>
+                        <div class="contact-col-text"> mardikar.a@husky.neu.edu
+                            <br>manojkumar.s@husky.neu.edu</div>
+                    </div>
+                </div>
+                <div class="w-col w-col-4 contact-col3">
+                    <div>
+                        <div class="hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a">
+                            <a href="#set-5" class="hi-icon hi-icon-mobile">Partners</a>
+                        </div>
+                        <h4 class="contact-col-head">Call Us</h4>
+                    </div>
+                    <div>
+                        <div class="contact-col-text-bar-last"> (617) 898-7546
+                            <br> (857) 350-5781</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///////////////////////////////////////////////////////
+       // End Contact section
+       //////////////////////////////////////////////////////////-->
+
+<!--///////////////////////////////////////////////////////
+       // Footer section
+       //////////////////////////////////////////////////////////-->
+
+<div class="footer-parlex">
+    <div class="parlex9-back">
+        <div class="w-container">
+                    <div class="fotter-text">
+                        <p class="copyright-area">©2016 JUST IN TIME. ALL RIGHTS RESERVED</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--///////////////////////////////////////////////////////
+// End Footer section
+//////////////////////////////////////////////////////////-->
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/normal.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/carousels.js"></script>
+<script type="text/javascript" src="js/slider-modernizr.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/portfolio-effects.js"></script>
+<script src="js/toucheffects.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/animation.js"></script>
+
+</body>
+</html>

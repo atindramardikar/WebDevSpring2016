@@ -1,0 +1,23 @@
+[
+  {
+    "_id":123, "name":"Alice", "password":"alice", "language":"Chinese", "dob":12,"country":"China",
+    "gender":"Female","email":"alice@gmail.com"
+  },
+
+  {
+    "_id":234, "name":"Bob",  "password":"bob", "language":"Hindi", "country":"China", "gender":"Male",
+    "email":"bob@gmail.com"
+  },
+  {
+    "_id":345, "firstName":"Charlie", "lastName":"Brown", "username":"charlie", "password":"charlie",
+    "email":"charlie@gmail.com"
+  },
+  {
+    "_id":456, "firstName":"Dan", "lastName":"Craig", "username":"dan", "password":"dan",
+    "email":"dan@gmail.com"
+  },
+  {
+    "_id":567, "firstName":"Edward", "lastName":"Norton", "username":"ed", "password":"ed",
+    "email":"edward@gmail.com"
+  }
+]

@@ -1,0 +1,11 @@
+<div class="register-login-form">
+    <h1><strong>{{model.title}}</strong></h1>
+    <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#d9534f;"></span>&nbsp;<label>{{model.address}}</label></h4>
+    <label>Description:</label><p>{{model.description}}</p>
+    <label>Event Dates:</label>
+    <ul ng-repeat="d in model.dates">
+        <li>{{d | date : 'fullDate'}}</li>
+    </ul>
+    <label>Host:</label> {{model.host}}<br>
+    <label>Host Email:</label> {{model.hostEmail}}
+</div>

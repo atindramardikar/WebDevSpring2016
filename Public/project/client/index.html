@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EventSchedulerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.2/ui-bootstrap-tpls.min.js"></script>
+    <link href="css/cover.css" rel="stylesheet">
+    <script src="gm.datepickerMultiSelect.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="services/user.service.client.js"></script>
+    <script src="services/event.service.client.js"></script>
+    <script src="views/main/main.controller.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/users/login.controller.js"></script>
+    <script src="views/users/profile.controller.js"></script>
+    <script src="views/users/signUp.controller.js"></script>
+    <script src="views/myEvents/myEvents.controller.js"></script>
+    <script src="views/createEvent/dateProposal.controller.js"></script>
+    <script src="views/createEvent/event.controller.js"></script>
+    <script src="views/myEvents/details.controller.js"></script>
+
+
+    <title>Just In Time</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script>
+        var autocomplete;
+        function initialize() {
+            autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+                    { types: ['geocode'] });
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            });
+        }
+    </script>
+</head>
+<body ng-controller="MainController" class="background-img">
+<div ng-include="'views/header/header.view.html'"></div>
+<div class="container">
+    <div>
+        <div ng-view>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

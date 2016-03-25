@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<div class="register-login-form">
+    <legend>My Events</legend>
+
+    <div ng-controller="MyEventsController" class="table-responsive">
+
+
+        <table  class="table">
+            <thead>
+            <tr>
+                <th>
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    Event Name
+                </th>
+                <th>
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    Action
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input ng-model="model.event.title" type="text" class="form-control">
+                </th>
+                <th>
+                    <span ng-click="model.addEvent(model.event)" class="glyphicon glyphicon-plus btn btn-default" aria-hidden="true"></span>
+                    <span ng-click="model.updateEvent(model.event)" class="glyphicon glyphicon-ok btn btn-success " aria-hidden="true"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="event in model.userEvents">
+                <td><a href="#/event/details/{{event._id}}">{{event.title}}</a></td>
+                <td>
+                    <span ng-click="model.deleteEvent($index)" class="glyphicon glyphicon-remove btn btn-danger" aria-hidden="true"></span>
+                    <span ng-click="model.selectEvent($index)" class="glyphicon glyphicon-pencil btn btn-success " aria-hidden="true"></span>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

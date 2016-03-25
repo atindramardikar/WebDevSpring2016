@@ -1,0 +1,10 @@
+[
+  {"_id":123, "title": "JAVA Meetup", "address": "61 Hemenway St Boston MA", "description": "Discussion about JAVA", "name": "Alice", "userId":123, "email": "alice@gmail.com",
+    "dateArray":[1459396800000, 1459569600000]},
+  {"_id":122, "title": "HTML meet up", "address": "15 Cedar St Malden MA", "description": "Discussion about HTML", "name": "Alice", "userId":123, "email": "alice@gmail.com",
+    "dateArray":[1459396800000, 1459569600000]},
+  {"_id":121, "title": "meeting", "address": "19 Peterborough Boston MA", "description": "One on One Meeting", "name": "Bob", "userId":234, "email": "bob@gmail.com",
+    "dateArray":[1459396800000, 1459569600000]},
+  {"_id":321, "title": "interview", "address": "Microsoft HQ Boston MA", "description": "Technical Interview", "name": "Bob", "userId":234, "email": "bob@gmail.com",
+    "dateArray":[1459396800000, 1459569600000]}
+]

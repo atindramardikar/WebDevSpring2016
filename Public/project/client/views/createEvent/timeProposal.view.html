@@ -1,0 +1,53 @@
+<div>
+    <div class="register-login-form">
+        <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
+        <div style="font-size: large">
+
+            <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            <strong style="color: #428bca">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            <strong style="color: #428bca">Time Proposal &nbsp;</strong><span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            Settings<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            Invite
+            <br>
+            <br>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>
+                        Time 1
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="d in selectedDates | orderBy:identity:false">
+                    <td>
+                        <span class="glyphicon glyphicon-trash" style="color: crimson; font-size: 20px" aria-hidden="true"></span>
+                    </td>
+                    <td>
+                        <strong>{{d | date : 'fullDate'}}</strong>
+                    </td>
+                    <td>
+                        <input class ="time-input" type="time"  class="form-control">
+                    </td>
+                    <td>
+                        <a href="">Add time slot</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-5">
+                <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
+                <button ng-click="$location.url('/settings')" type="submit" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+
+    </div>
+</div>
