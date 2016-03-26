@@ -4,7 +4,7 @@
         .module("EventSchedulerApp")
         .controller("MyEventsController", MyEventsController);
 
-    function MyEventsController(EventService, $rootScope) {
+    function MyEventsController(EventService, $rootScope, $location) {
         var vm = this;
 
         vm.deleteEvent = deleteEvent;
@@ -40,12 +40,12 @@
         }
 
         function selectEvent(index){
-            console.log(index);
-            vm.event = vm.userEvents[index];
+            $rootScope.event = vm.userEvents[index];
+            $location.url("/event");
+
         }
 
         function deleteEvent(index){
-            console.log(index);
             EventService
                 .deleteEventById(vm.userEvents[index]._id)
                 .then(init);

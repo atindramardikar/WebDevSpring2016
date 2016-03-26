@@ -21,7 +21,7 @@ module.exports = function (uuid) {
     function createEvent(event)
     {
      event._id=uuid.v1();
-        event.userId = 123;
+        event.userId = 000;
         events.push(event);
         console.log(events);
 
@@ -79,17 +79,15 @@ module.exports = function (uuid) {
     }
 
     function updateEvent (id, event) {
+        console.log(event);
         for (var e in events) {
-            if (events[e]._id === id) {
-                events[e] = event;
+            if (events[e]._id == id) {
+                events[e]=event;
             }
         }
     }
 
     function findDetailsForEvent(eventId) {
-        var event;
-        event = findEventById(eventId);
-        return event.details;
     }
 
 

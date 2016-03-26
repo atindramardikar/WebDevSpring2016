@@ -33,7 +33,9 @@
                 controllerAs: "app"
             })
             .when("/invite",{
-                templateUrl: "views/createEvent/invite.view.html"
+                templateUrl: "views/createEvent/invite.view.html",
+                controller: "InviteController",
+                controllerAs: "model"
             })
             .when("/pollCreated",{
                 templateUrl: "views/createEvent/pollCreated.view.html"

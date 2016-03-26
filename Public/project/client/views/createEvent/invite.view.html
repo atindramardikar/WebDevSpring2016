@@ -45,7 +45,9 @@
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
             <button ng-click="$location.url('/settings')" type="reset" class="btn btn-default">Back</button>
-            <button ng-click="$location.url('/pollCreated')" type="submit" class="btn btn-primary">Finish</button>
+            <button ng-hide="event" ng-click="$location.url('/pollCreated')" type="submit" class="btn btn-primary">Finish</button>
+            <button ng-show="event" ng-click="model.update()" type="submit" class="btn btn-primary">Update</button>
+
         </div>
     </div>
 </div>

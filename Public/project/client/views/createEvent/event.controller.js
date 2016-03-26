@@ -16,16 +16,14 @@
         return init();
 
         function update(event){
-            console.log(event);
             $rootScope.eventDetails=
                 {
                     "title": event.title,
                     "address": event.address,
                     "description": event.description,
-                    "name": event.yourName,
-                    "email": event.yourEmail
+                    "name": event.name,
+                    "email": event.email
                 }
-            console.log($rootScope.eventDetails);
                 $location.url("/dateProposal");
         }
 

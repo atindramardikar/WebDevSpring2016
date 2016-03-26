@@ -20,15 +20,6 @@
                     Action
                 </th>
             </tr>
-            <tr>
-                <th>
-                    <input ng-model="model.event.title" type="text" class="form-control">
-                </th>
-                <th>
-                    <span ng-click="model.addEvent(model.event)" class="glyphicon glyphicon-plus btn btn-default" aria-hidden="true"></span>
-                    <span ng-click="model.updateEvent(model.event)" class="glyphicon glyphicon-ok btn btn-success " aria-hidden="true"></span>
-                </th>
-            </tr>
             </thead>
             <tbody>
             <tr  ng-repeat="event in model.userEvents">
