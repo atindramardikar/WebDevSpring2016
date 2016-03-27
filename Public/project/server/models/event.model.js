@@ -68,14 +68,10 @@ module.exports = function (uuid) {
     }
 
     function createEventForUser (userId, newEvent) {
-        var nEvent = {
-            _id: uuid.v1(),
-            title: newEvent.title,
-            userId: userId
-            //fields: []
-        };
-        events.push(nEvent);
-        return events;
+        newEvent.userId=userId;
+        newEvent._id= uuid.v1();
+        events.push(newEvent);
+        console.log(events);
     }
 
     function updateEvent (id, event) {

@@ -17,7 +17,9 @@
                 controllerAs: "model"
             })
             .when("/timeProposal",{
-                templateUrl: "views/createEvent/timeProposal.view.html"
+                templateUrl: "views/createEvent/timeProposal.view.html",
+                controller: "TimeController",
+                controllerAs:"model"
             })
             .when("/settings",{
                 templateUrl: "views/createEvent/settings.view.html",

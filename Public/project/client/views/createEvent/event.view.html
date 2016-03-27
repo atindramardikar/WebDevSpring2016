@@ -1,5 +1,5 @@
 <div class="register-login-form container">
-    <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
+
     <form class="form-horizontal">
         <div style="font-size: large">
 
@@ -11,7 +11,7 @@
             <br>
             <br>
         </div>
-
+        <div ng-show="model.errormessage" class="alert alert-danger" role="alert">{{model.errormessage}}</div>
         <div class="form-group">
             <label class="col-lg-4 control-label">Title</label>
             <div class="col-lg-8">

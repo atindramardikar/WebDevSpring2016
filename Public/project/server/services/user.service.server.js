@@ -23,7 +23,6 @@ module.exports = function(app, userModel) {
             email: req.query.email,
             password: req.query.password
         };
-        console.log(credentials);
         var user = userModel.findUserByCredentials(credentials);
         res.json(user);
     }

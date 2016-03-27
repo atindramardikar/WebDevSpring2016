@@ -10,6 +10,7 @@
             <br>
             <br>
         </div>
+        <div ng-show="app.errormessage" class="alert alert-danger" role="alert">{{app.errormessage}}</div>
         <table>
             <tr>
                 <td>
@@ -22,14 +23,15 @@
                         <strong>Selected Dates:</strong>
                         <div>
                             <div ng-repeat='d in selectedDates | orderBy:identity:false'>
+                                <a><span ng-click='app.removeFromSelected(d)' class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 {{d | date : 'fullDate'}}
-                                <button class='btn btn-xs btn-warning' style='margin:5px' ng-click='app.removeFromSelected(d)'>Remove</button>
                             </div>
                         </div>
                     </div>
                 </td>
             </tr>
         </table>
+
         <br>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-4">

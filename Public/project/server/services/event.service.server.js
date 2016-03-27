@@ -17,9 +17,7 @@ module.exports = function(app, eventModel) {
 
     function getEventsForUser(req, res) {
         var id = req.params.userId;
-        console.log(id);
         var userEvents = eventModel.findEventsByUserId(id);
-        console.log(userEvents);
         res.json(userEvents);
     }
 
@@ -27,13 +25,11 @@ module.exports = function(app, eventModel) {
         var id = req.params.eventId;
         console.log(id);
         var event = eventModel.findEventById(id);
-        console.log(event);
         res.json(event);
     }
 
     function deleteEventById(req, res) {
         var id = req.params.eventId;
-        console.log(id);
         eventModel.deleteEventById(id);
         res.send(200);
     }
@@ -41,7 +37,7 @@ module.exports = function(app, eventModel) {
     function createEventForUser(req, res) {
         var userId = req.params.userId;
         var event = req.body;
-        res.json(eventModel.createEventForUser(userId, event));
+        eventModel.createEventForUser(userId, event);
     }
 
     function updateEventById(req, res) {

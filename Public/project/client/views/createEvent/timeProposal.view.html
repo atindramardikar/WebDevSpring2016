@@ -17,31 +17,29 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <th>
-                        Time 1
-                    </th>
-                    <th>
+                    <th ng-repeat="n in model.timeSlotsArray">
+                        Time {{n}}
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="d in selectedDates | orderBy:identity:false">
+                    <div>
                     <td>
-                        <span class="glyphicon glyphicon-trash" style="color: crimson; font-size: 20px" aria-hidden="true"></span>
+                        <a><span ng-click='model.removeFromSelected(d)' class="glyphicon glyphicon-trash" style=" font-size: 20px" aria-hidden="true"></span></a>
                     </td>
                     <td>
                         <strong>{{d | date : 'fullDate'}}</strong>
                     </td>
-                    <td>
+                    <td ng-repeat="n in model.timeSlotsArray">
                         <input class ="time-input" type="time"  class="form-control">
                     </td>
-                    <td>
-                        <a href="">Add time slot</a>
-                    </td>
+                    </div>
                 </tr>
                 </tbody>
             </table>
         </div>
+        <a href="" ng-click="model.addSlots()">Add time slot for all dates</a>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-5">
                 <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
