@@ -23,23 +23,55 @@ module.exports = function(app, userModel) {
             password: req.query.password
         }
         var user = userModel.findUserByCredentials(credentials)
-        res.json(user);
+            .then(
+                function (doc) {
+                    //req.session.currentUser = doc;
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            )
     }
+
 
     function findUserByUsername(req, res){
         var user = userModel.findUserByUsername(credentials);
         res.json(user);
     }
 
+
     function getUsers(req,res){
-        var users= userModel.getUsers();
-        res.json(users);
+        var users= userModel.getUsers()
+            .then(
+            function (doc) {
+                res.json(doc);
+            },
+            // send error if promise rejected
+            function ( err ) {
+                res.status(400).send(err);
+            }
+            )
     }
 
     function createUser(req,res){
-        var newUser = req.body;
-        var user = userModel.createUser(newUser);
-        res.json(user);
+        var user = req.body;
+        var cuser = userModel.createUser(user)
+                // handle model promise
+            .then(
+                // login user if promise resolved
+                function ( doc ) {
+                    //req.session.currentUser = doc;
+                    res.json(cuser);
+                },
+
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+
+            );
     }
 
     function updateUser(req, res) {
@@ -55,8 +87,17 @@ module.exports = function(app, userModel) {
 
     function findUserById(req, res) {
         var userId = req.params.id;
-        var user = userModel.findUserById(userId);
-        res.json(user);
+        var user = userModel.findUserById(userId)
+            .then(
+            // return user if promise resolved
+                function (doc) {
+                    res.json(doc);
+                },
+            // send error if promise rejected
+                function (err) {
+                    res.status(400).send(err);
+                }
+        );
     }
 
 };

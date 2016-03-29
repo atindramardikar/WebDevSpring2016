@@ -1,5 +1,5 @@
 var forms = require("./form.mock.json");
-module.exports = function (uuid, formModel) {
+module.exports = function (db, mongoose, formModel) {
     var api = {
         createField: createField,
         deleteField: deleteField,

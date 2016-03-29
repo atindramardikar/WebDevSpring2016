@@ -43,7 +43,7 @@
                 templateUrl: "views/createEvent/pollCreated.view.html"
             })
             .when("/profile",{
-                templateUrl: "views/users/profile.view.html",
+                templateUrl: "views/users/profile1.view.html",
                 controller:"ProfileController",
                 controllerAs: "model"
             })

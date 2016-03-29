@@ -34,10 +34,9 @@
             UserService
                 .createUser(user)
                 .then(function(response){
-                    if(response.data) {
-                        UserService.setCurrentUser(response.data);
-                        $location.url("/profile");
-                    }
+                    UserService.setCurrentUser(response.data);
+                    $location.url("/profile");
+
              });
 
         }

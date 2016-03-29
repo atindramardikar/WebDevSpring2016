@@ -7,28 +7,70 @@ module.exports = function(app, formModel) {
 
     function getFormsForUser(req, res) {
         var id = req.params.userId;
-        console.log(id);
-        var userForms = formModel.findFormsByUserId(id);
-        console.log(userForms);
-        res.json(userForms);
+        //res.json(userForms);
+        var userForms = formModel.findFormsByUserId(id)
+            .then(
+                function (doc) {
+                    //req.session.currentUser = doc;
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function getFormById(req, res) {
         var id = req.params.formId;
-        var forms = formModel.findFormById(id);
-        res.json(forms);
+        var form = formModel.findFormById(id)
+            .then(
+                function (doc) {
+                    //req.session.currentUser = doc;
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function deleteFormById(req, res) {
         var id = req.params.formId;
-        formModel.deleteFormById(id);
-        res.send(200);
+        //res.send(200);
+        formModel.deleteFormById(id)
+            .then(
+                function (doc) {
+                    //req.session.currentUser = doc;
+                    res.send(200);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function createFormForUser(req, res) {
         var userId = req.params.userId;
         var form = req.body;
-        res.json(formModel.createFormForUser(userId, form));
+        //res.json(formModel.createFormForUser(userId, form));
+        var forms = formModel.createFormForUser(userId, form)
+            // handle model promise
+            .then(
+                // login user if promise resolved
+                function ( doc ) {
+                    //req.session.currentUser = doc;
+                    res.json(doc);
+                },
+
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+
+            );
     }
 
     function updateFormById(req, res) {
