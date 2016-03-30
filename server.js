@@ -7,20 +7,20 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 
 
-var connectionString = 'mongodb://127.0.0.1:27017/WebDev';
-
-// use remote connection string
-// if running in remote server
-if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
-    connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-        process.env.OPENSHIFT_APP_NAME;
-}
-
-// connect to the database
-var db = mongoose.connect(connectionString);
+//var connectionString = 'mongodb://127.0.0.1:27017/WebDev';
+//
+//// use remote connection string
+//// if running in remote server
+//if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+//    connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+//        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+//        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+//        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+//        process.env.OPENSHIFT_APP_NAME;
+//}
+//
+//// connect to the database
+//var db = mongoose.connect(connectionString);
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -34,7 +34,7 @@ var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 app.get('/hello', function(req, res){
     res.send('hello world');
 });
-require("./Public/assignment/server/app.js")(app, db, mongoose);
-require("./Public/project/server/app.js")(app, db, mongoose,uuid);
+//require("./Public/assignment/server/app.js")(app, db, mongoose);
+//require("./Public/project/server/app.js")(app, db, mongoose,uuid);
 
 app.listen(port, ipaddress);
