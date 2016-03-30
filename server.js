@@ -35,6 +35,6 @@ app.get('/hello', function(req, res){
     res.send('hello world');
 });
 //require("./Public/assignment/server/app.js")(app, db, mongoose);
-require("./Public/project/server/app.js")(app, db, mongoose,uuid);
+require("./Public/project/server/app.js")(app, uuid);
 
 app.listen(port, ipaddress);
