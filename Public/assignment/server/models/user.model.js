@@ -74,7 +74,15 @@ module.exports = function(db,mongoose) {
                 deferred.reject(err);
             } else {
                 // resolve promise
-                deferred.resolve(doc);
+                doc.emails.push(user.email);
+                doc.save (function (err, doc) {
+                    if (err) {
+                        deferred.reject(err);
+                    } else {
+                        // resolve promise with user
+                        deferred.resolve (doc);
+                    }
+                });
             }
         });
         // return a promise
@@ -82,8 +90,19 @@ module.exports = function(db,mongoose) {
     }
 
     function deleteUserById(id){
+        var deferred = q.defer();
 
+        UserModel.remove({_id : id}, function (err, doc) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
+
 
     function findUserById(userId){
         var deferred = q.defer();

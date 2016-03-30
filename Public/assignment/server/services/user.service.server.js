@@ -57,13 +57,13 @@ module.exports = function(app, userModel) {
 
     function createUser(req,res){
         var user = req.body;
-        var cuser = userModel.createUser(user)
+        userModel.createUser(user)
                 // handle model promise
             .then(
                 // login user if promise resolved
                 function ( doc ) {
                     //req.session.currentUser = doc;
-                    res.json(cuser);
+                    res.json(doc);
                 },
 
                 // send error if promise rejected

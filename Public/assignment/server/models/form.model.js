@@ -12,7 +12,8 @@ module.exports = function (db,mongoose) {
         findFormById: findFormById,
         updateForm: updateForm,
         findFormByTitle: findFormByTitle,
-        findFormsByUserId: findFormsByUserId
+        findFormsByUserId: findFormsByUserId,
+        createField: createField
     };
     return api;
 
@@ -109,10 +110,52 @@ module.exports = function (db,mongoose) {
     }
 
     function updateForm (id, form) {
-        for (var f in forms) {
-            if (forms[f]._id === id) {
-                forms[f] = form;
+        var deferred = q.defer();
+        FormModel.update({_id: id}, {title: form.title, updated: new Date()},function (err, doc) {
+            if (err) {
+                // reject promise if error
+                deferred.reject(err);
+            } else {
+                // resolve promise
+                deferred.resolve(doc);
             }
-        }
+        });
+        // return a promise
+        return deferred.promise;
     }
+
+    function createField(formId, field) {
+        // var form;
+        //field._id = uuid.v1();
+        //form = formModel.findFormById(formId);
+        //form.fields.push(field);
+        var deferred = q.defer();
+
+        FormModel.findById(formId, function (err, doc) {
+
+            // reject promise if error
+            if (err) {
+                deferred.reject(err);
+            } else {
+
+                // add movie id to user likes
+                doc.fields.push (field);
+
+                // save user
+                doc.save (function (err, doc) {
+
+                    if (err) {
+                        deferred.reject(err);
+                    } else {
+
+                        // resolve promise with user
+                        deferred.resolve (doc);
+                    }
+                });
+            }
+        });
+        return deferred.promise;
+    }
+
+
 };

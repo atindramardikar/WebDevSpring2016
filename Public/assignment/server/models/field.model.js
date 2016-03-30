@@ -1,5 +1,11 @@
 var forms = require("./form.mock.json");
+var q = require("q");
+
 module.exports = function (db, mongoose, formModel) {
+
+    //var FormSchema = require("./form.schema.server.js")(mongoose);
+    //var FormModel = mongoose.model('form', FormSchema);
+
     var api = {
         createField: createField,
         deleteField: deleteField,
@@ -11,10 +17,7 @@ module.exports = function (db, mongoose, formModel) {
     return api;
 
     function createField(formId, field) {
-        var form;
-        field._id = uuid.v1();
-        form = formModel.findFormById(formId);
-        form.fields.push(field);
+        formModel.createField(formId, field);
     }
 
     function deleteField(formId, fieldId) {
@@ -42,9 +45,18 @@ module.exports = function (db, mongoose, formModel) {
     }
 
     function findFieldsByFormId(formId) {
-        var form;
-        form = formModel.findFormById(formId);
-        return form.fields;
+        formModel.findFormById(formId)
+            .then(
+            // login user if promise resolved
+            function ( doc ) {
+                //req.session.currentUser = doc;
+                res.json(doc);
+            },
+            // send error if promise rejected
+            function ( err ) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function updateField(formId, fieldId, field) {

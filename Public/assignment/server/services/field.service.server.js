@@ -9,8 +9,18 @@ module.exports = function(app, formModel, fieldModel) {
         var formId;
         var fields;
         formId = req.params.formId;
-        fields = fieldModel.findFieldsByFormId(formId);
-        res.json(fields);
+        formModel.findFormById(formId)
+            .then(
+            // login user if promise resolved
+            function ( doc ) {
+                //req.session.currentUser = doc;
+                res.json(doc.fields);
+            },
+            // send error if promise rejected
+            function ( err ) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function getFieldById(req, res) {
@@ -37,8 +47,18 @@ module.exports = function(app, formModel, fieldModel) {
         var formId;
         field = req.body;
         formId = req.params.formId;
-        field = fieldModel.createField(formId, field);
-        res.json(field);
+        formModel.createField(formId, field)
+            .then(
+            function (doc) {
+                //req.session.currentUser = doc;
+                res.json(doc);
+            },
+            // send error if promise rejected
+            function (err) {
+                res.status(400).send(err);
+            }
+
+        );
     }
 
     function updateFieldById(req, res) {
