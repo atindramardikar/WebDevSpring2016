@@ -34,6 +34,10 @@ var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 app.get('/hello', function(req, res){
     res.send('hello world');
 });
+app.get('/env', function(req, res){
+    res.json(process.env);
+});
+
 //require("./Public/assignment/server/app.js")(app, db, mongoose);
 require("./Public/project/server/app.js")(app, uuid);
 
