@@ -38,7 +38,7 @@ app.get('/env', function(req, res){
     res.json(process.env);
 });
 
-//require("./Public/assignment/server/app.js")(app, db, mongoose);
+require("./Public/assignment/server/app.js")(app, null, mongoose);
 require("./Public/project/server/app.js")(app, uuid);
 
 app.listen(port, ipaddress);
