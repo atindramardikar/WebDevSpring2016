@@ -44,12 +44,26 @@ module.exports = function(db,mongoose) {
     }
 
     function findUserByUsername(username) {
-        for(var u in users) {
-            if( users[u].username == username) {
-                return users[u];
-            }
-        }
-        return null;
+        var deferred = q.defer();
+        // find one retrieves one document
+        UserModel.findOne(
+            // first argument is predicate
+            {
+                username: username
+            },
+
+            // doc is unique instance matches predicate
+            function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    deferred.resolve(doc);
+                }
+            });
+
+        return deferred.promise;
     }
 
     function getUsers(){

@@ -62,14 +62,11 @@ module.exports = function(app, formModel, fieldModel) {
     }
 
     function updateFieldById(req, res) {
-        var fieldId;
-        var formId;
-        var field;
-        var r;
-        field = req.body;
-        fieldId = req.params.fieldId;
-        formId = req.params.formId;
-        r = fieldModel.updateField(formId, fieldId, field);
+        var field = req.body;
+        var fieldId = req.params.fieldId;
+        var formId = req.params.formId;
+        fieldModel.updateField(formId, fieldId, field);
+
         res.json(r);
     }
 };

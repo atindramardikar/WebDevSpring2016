@@ -3,8 +3,8 @@ var q = require("q");
 
 module.exports = function (db, mongoose, formModel) {
 
-    //var FormSchema = require("./form.schema.server.js")(mongoose);
-    //var FormModel = mongoose.model('form', FormSchema);
+    var FieldSchema = require("./field.schema.server.js")(mongoose);
+    var FieldModel = mongoose.model('field', FormSchema);
 
     var api = {
         createField: createField,
@@ -35,7 +35,21 @@ module.exports = function (db, mongoose, formModel) {
     function findField(formId, fieldId) {
         var form;
         var fields;
-        form = formModel.findFormById(formId);
+        formModel.findFormById(formId)
+            .then(function ( doc ) {
+                   FieldModel.findbyId(fieldId, function (err, doc) {
+                       if (err) {
+                           deferred.reject(err);
+                       }
+                       else {
+                           deferred.resolve(doc);
+                       }
+                   })
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                });
         fields = form.fields;
         for (f in fields) {
             if (fields[f]._id == fieldId) {
@@ -62,7 +76,18 @@ module.exports = function (db, mongoose, formModel) {
     function updateField(formId, fieldId, field) {
         var form;
         var fields;
-        form = formModel.findFormById(formId);
+        formModel.findFormById(formId)
+            .then(
+                // login user if promise resolved
+                function ( doc ) {
+
+                    res.json(doc.fields);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            );
         fields = form.fields;
         for (f in fields) {
             if (fields[f]._id == fieldId) {
