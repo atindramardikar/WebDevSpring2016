@@ -6,17 +6,12 @@ module.exports = function(app, formModel, fieldModel) {
     app.put("/api/assignment/form/:formId/field/:fieldId", updateFieldById);
 
     function fieldsForFormId(req, res) {
-        var formId;
-        var fields;
-        formId = req.params.formId;
-        formModel.findFormById(formId)
+        var formId = req.params.formId;
+        fieldModel.fieldsForFormId(formId)
             .then(
-            // login user if promise resolved
             function ( doc ) {
-                //req.session.currentUser = doc;
                 res.json(doc.fields);
             },
-            // send error if promise rejected
             function ( err ) {
                 res.status(400).send(err);
             }
@@ -24,30 +19,27 @@ module.exports = function(app, formModel, fieldModel) {
     }
 
     function getFieldById(req, res) {
-        var formId;
-        var fieldId;
-        var field;
-        formId = req.params.formId;
-        fieldId = req.params.fieldId;
-        field = fieldModel.findField(formId, fieldId);
-        res.json(field);
+
     }
 
     function deleteFieldById(req, res) {
-        var formId;
-        var fieldId;
-        formId = req.params.formId;
-        fieldId = req.params.fieldId;
-        fieldModel.deleteField(formId, fieldId);
-        res.send(200);
+        var formId = req.params.formId;
+        var fieldId = req.params.fieldId;
+        fieldModel.deleteField(formId, fieldId)
+        .then(
+            function (doc) {
+                res.send(200);
+            },
+            function (err) {
+                res.status(400).send(err);
+            }
+        );
     }
 
     function addFieldToForm(req, res) {
-        var field;
-        var formId;
-        field = req.body;
-        formId = req.params.formId;
-        formModel.createField(formId, field)
+        var field = req.body;
+        var formId = req.params.formId;
+        fieldModel.addFieldToForm(formId, field)
             .then(
             function (doc) {
                 //req.session.currentUser = doc;
@@ -65,8 +57,14 @@ module.exports = function(app, formModel, fieldModel) {
         var field = req.body;
         var fieldId = req.params.fieldId;
         var formId = req.params.formId;
-        fieldModel.updateField(formId, fieldId, field);
-
-        res.json(r);
+        fieldModel.updateField(formId, fieldId, field)
+            .then(
+                function (doc) {
+                    res.send(200);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 };

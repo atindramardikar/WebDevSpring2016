@@ -3,97 +3,102 @@ var q = require("q");
 
 module.exports = function (db, mongoose, formModel) {
 
-    var FieldSchema = require("./field.schema.server.js")(mongoose);
-    var FieldModel = mongoose.model('field', FormSchema);
-
     var api = {
-        createField: createField,
+        addFieldToForm: addFieldToForm,
         deleteField: deleteField,
-        findField: findField,
+        findFieldbyId: findFieldbyId,
         updateField: updateField,
-        findFieldsByFormId: findFieldsByFormId
+        fieldsForFormId: fieldsForFormId
     };
 
     return api;
 
-    function createField(formId, field) {
-        formModel.createField(formId, field);
-    }
-
-    function deleteField(formId, fieldId) {
-        var form;
-        var fields;
-        form = formModel.findFormById(formId);
-        fields = form.fields;
-        for (f in fields) {
-            if (fields[f]._id == fieldId) {
-                fields.splice(f, 1);
-            }
-        }
-    }
-
-    function findField(formId, fieldId) {
-        var form;
-        var fields;
-        formModel.findFormById(formId)
-            .then(function ( doc ) {
-                   FieldModel.findbyId(fieldId, function (err, doc) {
-                       if (err) {
-                           deferred.reject(err);
-                       }
-                       else {
-                           deferred.resolve(doc);
-                       }
-                   })
-                },
-                // send error if promise rejected
-                function ( err ) {
-                    res.status(400).send(err);
-                });
-        fields = form.fields;
-        for (f in fields) {
-            if (fields[f]._id == fieldId) {
-                return fields[f];
-            }
-        }
-    }
-
-    function findFieldsByFormId(formId) {
+    function addFieldToForm(formId, field) {
+        var deferred = q.defer();
         formModel.findFormById(formId)
             .then(
-            // login user if promise resolved
-            function ( doc ) {
-                //req.session.currentUser = doc;
-                res.json(doc);
-            },
-            // send error if promise rejected
-            function ( err ) {
-                res.status(400).send(err);
-            }
-        );
-    }
-
-    function updateField(formId, fieldId, field) {
-        var form;
-        var fields;
-        formModel.findFormById(formId)
-            .then(
-                // login user if promise resolved
-                function ( doc ) {
-
-                    res.json(doc.fields);
+                function (doc) {
+                    doc.fields.push(field);
+                    doc.save(function (err, doc) {
+                        if (err) {
+                            deferred.reject(err);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    });
                 },
-                // send error if promise rejected
-                function ( err ) {
+                function (err) {
                     res.status(400).send(err);
                 }
             );
-        fields = form.fields;
-        for (f in fields) {
-            if (fields[f]._id == fieldId) {
-                fields[f] = field;
-            }
-        }
+        return deferred.promise;
     }
 
+    function deleteField(formId, fieldId) {
+        var deferred = q.defer();
+        formModel.findFormById(formId)
+            .then(
+                function (doc) {
+                    doc.fields.id(fieldId).remove();
+                    doc.save(function (err, doc) {
+                        if (err) {
+                            deferred.reject(err);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    });
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
+        return deferred.promise;
+    }
+
+    function findFieldbyId(fields) {
+
+    }
+
+
+    function fieldsForFormId(formId) {
+        var deferred = q.defer();
+        formModel.findFormById(formId)
+            .then(function (doc) {
+                    deferred.resolve(doc);
+                },
+                // send error if promise rejected
+                function (err) {
+                    deferred.reject(err);
+
+                });
+        return deferred.promise;
+    }
+
+    function updateField(formId, fieldId, field) {
+        var deferred = q.defer();
+        formModel.findFormById(formId)
+            .then(
+                function (doc) {
+                    var newField = doc.fields.id(fieldId);
+                    newField.label = field.label;
+                    newField.placeholder = field.placeholder;
+                    newField.type = field.type;
+                    newField.options = field.options;
+                    doc.save(function (err, doc) {
+                        if (err) {
+                            deferred.reject(err);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    });
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
+        return deferred.promise;
+    }
 };

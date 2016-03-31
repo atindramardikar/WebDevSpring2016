@@ -12,8 +12,7 @@ module.exports = function (db,mongoose) {
         findFormById: findFormById,
         updateForm: updateForm,
         findFormByTitle: findFormByTitle,
-        findFormsByUserId: findFormsByUserId,
-        createField: createField
+        findFormsByUserId: findFormsByUserId
     };
     return api;
 
@@ -123,39 +122,4 @@ module.exports = function (db,mongoose) {
         // return a promise
         return deferred.promise;
     }
-
-    function createField(formId, field) {
-        // var form;
-        //field._id = uuid.v1();
-        //form = formModel.findFormById(formId);
-        //form.fields.push(field);
-        var deferred = q.defer();
-
-        FormModel.findById(formId, function (err, doc) {
-
-            // reject promise if error
-            if (err) {
-                deferred.reject(err);
-            } else {
-
-                // add movie id to user likes
-                doc.fields.push (field);
-
-                // save user
-                doc.save (function (err, doc) {
-
-                    if (err) {
-                        deferred.reject(err);
-                    } else {
-
-                        // resolve promise with user
-                        deferred.resolve (doc);
-                    }
-                });
-            }
-        });
-        return deferred.promise;
-    }
-
-
 };
