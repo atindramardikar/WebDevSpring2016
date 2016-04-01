@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("FormBuilderApp")
-        .controller("MainController",MainController);
+        .controller("MainController", MainController);
 
 function MainController($scope, $location){
     $scope.$location=$location;

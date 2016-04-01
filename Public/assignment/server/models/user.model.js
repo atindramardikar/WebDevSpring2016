@@ -82,13 +82,14 @@ module.exports = function(db,mongoose) {
 
     function createUser(user){
         var deferred = q.defer();
+        var emails=user.email.split(",");
         UserModel.create(user, function (err, doc) {
             if (err) {
                 // reject promise if error
                 deferred.reject(err);
             } else {
                 // resolve promise
-                doc.emails.push(user.email);
+                doc.emails.push(emails);
                 doc.save (function (err, doc) {
                     if (err) {
                         deferred.reject(err);

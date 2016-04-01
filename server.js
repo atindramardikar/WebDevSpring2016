@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var cookieParser  = require('cookie-parser');
-var session = require('express-session');
+var session       = require('express-session');
 var mongoose = require('mongoose');
 
 
@@ -18,13 +18,18 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
         process.env.OPENSHIFT_APP_NAME;
 }
-
 // connect to the database
 mongoose.connect(connectionString);
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer());
+app.use(session({
+    secret: 'this is the secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(cookieParser());
 
 var uuid= require('node-uuid');
 

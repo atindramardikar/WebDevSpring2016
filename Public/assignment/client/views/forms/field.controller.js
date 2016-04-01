@@ -13,6 +13,7 @@
         vm.deleteField = deleteField;
         vm.addField = addField;
         vm.reorder = reorder;
+        vm.sortfields= sortFields;
         vm.options =
             [
                 'Single Line Text Field',
@@ -70,6 +71,20 @@
                 .updateFormById(formId, vm.form)
                 .then(init);
 
+        }
+
+        function sortFields(start, end) {
+            FieldService
+                .sortFields(formId, start, end)
+                .then(
+                    function (response) {
+                        //vm.fields = response.data;
+                        init();
+                    },
+                    function (err) {
+                        vm.error = err;
+                    }
+                );
         }
 
         function deleteField(field) {
