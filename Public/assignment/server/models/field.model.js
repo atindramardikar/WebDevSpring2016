@@ -8,7 +8,8 @@ module.exports = function (db, mongoose, formModel) {
         deleteField: deleteField,
         findFieldbyId: findFieldbyId,
         updateField: updateField,
-        fieldsForFormId: fieldsForFormId
+        fieldsForFormId: fieldsForFormId,
+        sortField: sortField
     };
 
     return api;
@@ -94,6 +95,31 @@ module.exports = function (db, mongoose, formModel) {
                             deferred.resolve(doc);
                         }
                     });
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
+        return deferred.promise;
+    }
+
+    function sortField(formId, startIndex, endIndex) {
+        var deferred = q.defer();
+        formModel.findFormById(formId)
+            .then(
+                function(form){
+                    form.fields.splice(endIndex, 0, form.fields.splice(startIndex, 1)[0]);
+                    form.markModified("fields");
+
+                    form.save(function (err, doc) {
+                        if (err) {
+                            deferred.reject(err);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    });
+
                 },
                 function (err) {
                     res.status(400).send(err);

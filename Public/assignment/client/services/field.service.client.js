@@ -10,7 +10,8 @@
             findField: findField,
             findFieldsByForm: findFieldsByForm,
             deleteField: deleteField,
-            updateField: updateField
+            updateField: updateField,
+            sortField: sortField
         };
 
         return api;
@@ -33,6 +34,10 @@
 
         function updateField (formId, fieldId, field) {
             return $http.put("/api/assignment/form/" + formId + "/field/" + fieldId, field);
+        }
+
+        function sortField(formId, startIndex, endIndex) {
+            return $http.put("/api/assignment/"+formId+"/form?startIndex="+startIndex+"&endIndex="+endIndex);
         }
 
     }

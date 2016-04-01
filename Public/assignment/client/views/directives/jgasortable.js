@@ -20,7 +20,7 @@
                         if(start >= end) {
                             start--;
                         }
-                        scope.model.sortPage(start, end);
+                        scope.model.sortField(start, end);
                     }
                 });
         }

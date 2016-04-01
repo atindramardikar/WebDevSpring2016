@@ -122,4 +122,5 @@ module.exports = function (db,mongoose) {
         // return a promise
         return deferred.promise;
     }
+
 };
