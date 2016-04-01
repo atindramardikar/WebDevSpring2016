@@ -6,6 +6,7 @@
     function registerController($location, UserService) {
         var vm= this;
         vm.message = null;
+        vm.userExistCheck= true;
         vm.register = register;
 
         function register(user) {
@@ -31,14 +32,14 @@
                 return;
             }
 
-            UserService
-                .createUser(user)
-                .then(function(response){
-                    UserService.setCurrentUser(response.data);
-                    $location.url("/profile");
+                user.emails = user.email.split(",");
+                UserService
+                    .createUser(user)
+                    .then(function (response) {
+                        UserService.setCurrentUser(response.data);
+                        $location.url("/profile");
 
-             });
-
+                    });
         }
 
     }

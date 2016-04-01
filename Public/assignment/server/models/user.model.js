@@ -51,7 +51,6 @@ module.exports = function(db,mongoose) {
             {
                 username: username
             },
-
             // doc is unique instance matches predicate
             function(err, doc) {
                 if (err) {
@@ -82,22 +81,12 @@ module.exports = function(db,mongoose) {
 
     function createUser(user){
         var deferred = q.defer();
-        var emails=user.email.split(",");
         UserModel.create(user, function (err, doc) {
             if (err) {
                 // reject promise if error
                 deferred.reject(err);
             } else {
-                // resolve promise
-                doc.emails.push(emails);
-                doc.save (function (err, doc) {
-                    if (err) {
-                        deferred.reject(err);
-                    } else {
-                        // resolve promise with user
-                        deferred.resolve (doc);
-                    }
-                });
+                deferred.resolve (doc);
             }
         });
         // return a promise
@@ -136,12 +125,33 @@ module.exports = function(db,mongoose) {
     }
 
     function updateUser(id,user){
+        var deferred = q.defer();
 
-        for (var u in users) {
-            if (users[u]._id == id) {
-                users[u] = user;
+
+        //console.log(id);
+
+        UserModel.update({_id: id},
+            {
+              $set:user
+            }, function (err, doc) {
+            if (err) {
+                // reject promise if error
+                deferred.reject(err);
+            } else {
+                // resolve promise\
+                UserModel.findById(id, function (err, doc) {
+
+                    if (err) {
+                        deferred.reject(err);
+                    }
+                    else {
+                        //console.log(doc);
+                        deferred.resolve(doc);
+                    }
+                });
             }
-        }
-        return user;
+        });
+        // return a promise
+        return deferred.promise;
     }
 }

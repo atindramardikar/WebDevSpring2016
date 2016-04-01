@@ -24,7 +24,7 @@ module.exports = function(app, userModel) {
             username: req.query.username,
             password: req.query.password
         }
-        var user = userModel.findUserByCredentials(credentials)
+        userModel.findUserByCredentials(credentials)
             .then(
                 function (doc) {
                     req.session.currentUser = doc;
@@ -34,13 +34,21 @@ module.exports = function(app, userModel) {
                 function ( err ) {
                     res.status(400).send(err);
                 }
-            )
+            );
     }
 
 
     function findUserByUsername(req, res){
-        var user = userModel.findUserByUsername(credentials);
-        res.json(user);
+        userModel.findUserByUsername(req.query.username)
+            .then(
+                function (doc) {
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function ( err ) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
 
@@ -79,7 +87,20 @@ module.exports = function(app, userModel) {
     function updateUser(req, res) {
         var user = req.body;
         var userId = req.params.id;
-        res.json(userModel.updateUser(userId, user));
+        //console.log(userId);
+        userModel.updateUser(userId, user)
+            .then(
+                // return user if promise resolved
+                function (doc) {
+                    //console.log(doc);
+                    req.session.currentUser = doc;
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteUser(req, res) {
@@ -89,7 +110,7 @@ module.exports = function(app, userModel) {
 
     function findUserById(req, res) {
         var userId = req.params.id;
-        var user = userModel.findUserById(userId)
+        userModel.findUserById(userId)
             .then(
             // return user if promise resolved
                 function (doc) {

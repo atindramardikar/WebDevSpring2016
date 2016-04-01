@@ -9,7 +9,7 @@
                 templateUrl: "views/home/home.view.html",
                 controller: "HomeController",
                 resolve: {
-                    loggedin: checkLoggedin
+                    loggedin: checkCurrentUser
                 }
             })
             .when("/profile",{
@@ -67,7 +67,7 @@
         {
             $rootScope.errorMessage = null;
             // User is Authenticated
-            if (user !== '0')
+            if (user)
             {
                 $rootScope.currentUser = user;
                 deferred.resolve();
@@ -75,16 +75,33 @@
             // User is Not Authenticated
             else
             {
-                $rootScope.errorMessage = 'You need to log in.';
+                //$rootScope.errorMessage = 'You need to log in.';
+                alert("You need to log in.");
                 deferred.reject();
                 $location.url('/login');
-                $rootScope.danger = "Unable to login";
+                //$rootScope.danger = "Unable to login";
             }
         });
 
         return deferred.promise;
     };
 
+    var checkCurrentUser = function($q, $timeout, $http, $location, $rootScope)
+    {
+        var deferred = $q.defer();
+
+        $http.get('/api/assignment/user/loggedin').success(function(user)
+        {
+            // User is Authenticated
+            if (user !== '0')
+            {
+                $rootScope.currentUser = user;
+            }
+            deferred.resolve();
+        });
+
+        return deferred.promise;
+    };
 
 
 })();
