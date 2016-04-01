@@ -5,6 +5,7 @@
 
     function LoginController(UserService, $location) {
         var vm= this;
+        vm.message=null;
         vm.login = login;
 
         function init() {
@@ -13,6 +14,7 @@
 
         function login(user) {
             if(!user) {
+                vm.message='Enter all the fields';
                 return;
             }
             UserService.findUserByCredentials({
@@ -23,6 +25,9 @@
                     if(response.data) {
                         UserService.setCurrentUser(response.data);
                         $location.url("/profile");
+                    }
+                    else{
+                        vm.message='Credentials does not match';
                     }
                 });
         }

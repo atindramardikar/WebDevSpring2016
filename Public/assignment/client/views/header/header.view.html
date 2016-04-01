@@ -14,7 +14,7 @@
                 <li ng-hide="currentUser" ng-class="{'active': model.$location.url()=='/register'}"><a href="#/register">Register</a></li>
                 <li ng-hide="currentUser" ng-class="{'active': model.$location.url()=='/login'}"><a href="#/login">Log-in</a></li>
                 <li ng-click="model.logout()" ng-show="currentUser" class="btn-danger"> <a href="#/home" style="color: white">Log-out</a></li>
-                <li ng-show="currentUser" ng-class="{'active': model.$location.url()=='/profile'}"><a>{{currentUser.username}}</a></li>
+                <li ng-show="currentUser" ng-class="{'active': model.$location.url()=='/profile'}"><a href="#/profile">{{currentUser.username}}</a></li>
                 <li ng-show="currentUser" ng-class="{'active': model.$location.url()=='/profile'}"><a href="#/profile">Profile</a></li>
                 <li ng-show="currentUser.roles.indexOf('admin')>=0" ng-class="{'active': model.$location.url()=='/admin'}"><a href="#/admin">Admin</a></li>
             </ul>

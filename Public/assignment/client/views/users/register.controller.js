@@ -33,12 +33,19 @@
             }
 
                 user.emails = user.email.split(",");
-                UserService
-                    .createUser(user)
-                    .then(function (response) {
-                        UserService.setCurrentUser(response.data);
-                        $location.url("/profile");
+                UserService.findUserByUsername(user.username)
+                    .then(function(response) {
+                        if (response.data) {
+                            vm.message='Username already exist!';
+                        }else{
+                            UserService
+                                .createUser(user)
+                                .then(function (response) {
+                                    UserService.setCurrentUser(response.data);
+                                    $location.url("/profile");
 
+                                });
+                        }
                     });
         }
 
