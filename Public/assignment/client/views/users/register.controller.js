@@ -6,7 +6,6 @@
     function registerController($location, UserService) {
         var vm= this;
         vm.message = null;
-        vm.userExistCheck= true;
         vm.register = register;
 
         function register(user) {

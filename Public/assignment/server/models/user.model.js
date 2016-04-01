@@ -132,7 +132,11 @@ module.exports = function(db,mongoose) {
 
         UserModel.update({_id: id},
             {
-              $set:user
+                username: user.username,
+                password: user.password,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                emails: user.emails
             }, function (err, doc) {
             if (err) {
                 // reject promise if error
