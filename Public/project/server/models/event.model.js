@@ -1,9 +1,15 @@
 /**
  * Created by Sanjanamanoj on 3/24/2016.
  */
-var events = require("./event.mock.json");
+var q = require('q');
 
-module.exports = function (uuid) {
+module.exports = function (db, mongoose) {
+
+    var EventSchema = require('./event.schema.server.js')(mongoose);
+
+    // create user model from schema
+    var EventModel = mongoose.model('project.eventScheduler.event', EventSchema);
+
     var api = {
         createEventForUser: createEventForUser,
         deleteEventById: deleteEventById,
@@ -14,73 +20,144 @@ module.exports = function (uuid) {
         findEventsByUserId: findEventsByUserId,
         findDetailsForEvent : findDetailsForEvent,
         createEvent : createEvent
-
     };
     return api;
 
-    function createEvent(event)
+    function createEvent(newEvent)
     {
-     event._id=uuid.v1();
-        event.userId = 000;
-        events.push(event);
-        console.log(events);
+        var deferred = q.defer();
+        var userEvent = {
+            userId : 000,
+            title : newEvent.title,
+            address: newEvent.address,
+            description:newEvent.description,
+            name:newEvent.name,
+            email:newEvent.email,
+            schedule:newEvent.schedule,
+            hidden:newEvent.hidden,
+            oneOption:newEvent.oneOption,
+            limit:newEvent.limit,
+            participate:newEvent.participate,
+            invitedEmails:newEvent.invitedEmails
+        };
+        EventModel.create(userEvent,function(err,doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                console.log(doc);
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
 
     }
 
     function findEventByTitle(title) {
-        for (var e in events) {
-            if (events[e].title === title) {
-                return events[e];
+       var deferred = q.defer();
+        EventModel.find({title:title},function(err,doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return null;
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findEventsByUserId(userId) {
-        var userEvents = [];
-        for (e in events) {
-            if (events[e].userId == userId) {
-                userEvents.push(events[e]);
+       var deferred = q.defer();
+        EventModel.find({userId:userId},function(err,doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return userEvents;
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findEventById (id) {
-        for (var e in events) {
-            if (events[e]._id == id) {
-                return events[e];
+        var deferred = q.defer();
+        EventModel.findById(id,function(err, doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return null;
+            else{
+                console.log(doc);
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findAllEvents () {
-        return events;
+        var deferred = q.defer();
+        EventModel.find(function(err,doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function deleteEventById (id) {
-        for (var e in events) {
-            if (events[e]._id == id) {
-                events.splice(e, 1);
+        var deferred = q.defer();
+        EventModel.remove({_id:id},function(err,doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function createEventForUser (userId, newEvent) {
-        newEvent.userId=userId;
-        newEvent._id= uuid.v1();
-        events.push(newEvent);
-        console.log(events);
+        var deferred = q.defer();
+        var userEvent = {
+            userId : userId,
+            title : newEvent.title,
+            address: newEvent.address,
+            description:newEvent.description,
+            name:newEvent.name,
+            email:newEvent.email,
+            schedule:newEvent.schedule,
+            hidden:newEvent.hidden,
+            oneOption:newEvent.oneOption,
+            limit:newEvent.limit,
+            participate:newEvent.participate,
+            invitedEmails:newEvent.invitedEmails
+        };
+        EventModel.create(userEvent,function(err,doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                console.log(doc);
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function updateEvent (id, event) {
-        console.log(event);
-        for (var e in events) {
-            if (events[e]._id == id) {
-                events[e]=event;
+        var deferred = q.defer();
+        EventModel.update({_id:id},{$set:event}, function(err,doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findDetailsForEvent(eventId) {

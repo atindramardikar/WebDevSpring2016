@@ -17,7 +17,7 @@
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
             <button ng-click="$location.url('/timeProposal')" type="reset" class="btn btn-default">Back</button>
-            <button type="submit" class="btn btn-primary">Next</button>
+            <button ng-click="model.noAction()" type="submit" class="btn btn-primary">Next</button>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
 
     <div class="checkbox col-lg-10 col-lg-offset-1">
         <label>
-            <input type="checkbox"> <b>Hidden Poll</b>
+            <input ng-model="model.event.hidden" type="checkbox"> <b>Hidden Poll</b>
         </label>
         <br>
        &nbsp; &nbsp; &nbsp;Confidential participation: Only you can see the answers
@@ -35,14 +35,14 @@
 
     <div class="checkbox col-lg-10 col-lg-offset-1">
         <label>
-            <input type="checkbox"> <b>Participant can choose only one option</b>
+            <input ng-model="model.event.oneOption" type="checkbox"> <b>Participant can choose only one option</b>
         </label><br>
         &nbsp; &nbsp; &nbsp;By default all options are selectable. This setting limits the choice to one option per &nbsp; &nbsp; &nbsp;participant
     </div>
 
     <div class="checkbox col-lg-10 col-lg-offset-1">
         <label>
-            <input type="checkbox"><b> Limit the number of participants per option</b>
+            <input ng-model="model.event.limit" type="checkbox"><b> Limit the number of participants per option</b>
         </label><br>
         &nbsp; &nbsp; &nbsp;Poll as registration form: As soon as the indicated limit has ben reached,the
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;respective option is no longer available
@@ -51,7 +51,7 @@
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
             <button ng-click="$location.url('/timeProposal')" type="reset" class="btn btn-default">Back</button>
-            <button ng-click="$location.url('/invite')" type="submit" class="btn btn-primary">Next</button>
+            <button ng-click="model.update(model.event)" type="submit" class="btn btn-primary">Next</button>
         </div>
     </div>
 </div>

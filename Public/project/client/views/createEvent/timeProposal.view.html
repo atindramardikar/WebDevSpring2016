@@ -31,8 +31,8 @@
                     <td>
                         <strong>{{d | date : 'fullDate'}}</strong>
                     </td>
-                    <td ng-repeat="n in model.timeSlotsArray">
-                        <input class ="time-input" type="time"  class="form-control">
+                    <td  ng-repeat="n in model.timeSlotsArray">
+                        <input ng-model= "n" ng-change="model.change(n,d,$index)" class ="time-input" type="time"  class="form-control">
                     </td>
                     </div>
                 </tr>
@@ -43,7 +43,7 @@
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-5">
                 <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
-                <button ng-click="$location.url('/settings')" type="submit" class="btn btn-primary">Next</button>
+                <button ng-click='model.update(model.event)' type="submit" class="btn btn-primary">Next</button>
             </div>
         </div>
 

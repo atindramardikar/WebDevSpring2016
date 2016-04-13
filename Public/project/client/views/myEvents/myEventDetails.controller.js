@@ -19,7 +19,7 @@
                     vm.description=event.description;
                     vm.host=event.name;
                     vm.hostEmail=event.email;
-                    vm.dates=event.dateArray;
+                    vm.schedule=event.schedule;
                 });
         }
         init();

@@ -24,15 +24,15 @@
         return init();
 
         function update(user) {
-            if(typeof user.emails == "string") {
-                user.emails = user.emails.split(",");
-            }
+            //if(typeof user.emails == "string") {
+            //    user.emails = user.emails.split(",");
+            //}
                 UserService
                     .updateUser(vm.cu._id,user)
                     .then(function(response){
                         if(response.data) {
                             vm.message='Profile updated Successfully';
-                            UserService.setCurrentUser(response.data);
+                            UserService.setCurrentUser(user);
                             $location.url("/profile");
                         }
                     });

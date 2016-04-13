@@ -5,10 +5,11 @@
         .module("EventSchedulerApp")
         .controller("EventController",EventController);
 
-    function EventController($location, $rootScope) {
+    function EventController(EventService,$location, $rootScope) {
         var vm = this;
         vm.update = update;
         vm.cu=null;
+        vm.e=null;
         vm.errormessage=null;
         function init() {
 
@@ -43,12 +44,14 @@
             }
             $rootScope.event=
                 {
+                    "id":"",
                     "title": event.title,
                     "address": event.address,
                     "description": event.description,
                     "name": event.name,
                     "email": event.email
-                }
+                };
+
              $location.url("/dateProposal");
         }
 

@@ -31,21 +31,14 @@
                 return;
             }
 
-                user.emails = user.email.split(",");
-                UserService.findUserByUsername(user.username)
-                    .then(function(response) {
-                        if (response.data) {
-                            vm.message='Username already exist!';
-                        }else{
-                            UserService
-                                .createUser(user)
-                                .then(function (response) {
-                                    UserService.setCurrentUser(response.data);
-                                    $location.url("/profile");
+            //user.emails = user.email.split(",");
+            UserService
+                .register(user)
+                .then(function (response) {
+                    UserService.setCurrentUser(response.data);
+                    $location.url("/profile");
+                });
 
-                                });
-                        }
-                    });
         }
 
     }

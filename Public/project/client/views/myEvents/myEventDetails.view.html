@@ -3,7 +3,7 @@
     <h4><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#d9534f;"></span>&nbsp;<label>{{model.address}}</label></h4>
     <label>Description:</label><p>{{model.description}}</p>
     <label>Event Dates:</label>
-    <ul ng-repeat="d in model.dates">
+    <ul ng-repeat="d in model.schedule">
         <li>{{d | date : 'fullDate'}}</li>
     </ul>
     <label>Host:</label> {{model.host}}<br>

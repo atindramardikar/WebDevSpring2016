@@ -17,17 +17,14 @@
                 vm.message='Enter all the fields';
                 return;
             }
-            UserService.findUserByCredentials({
+            UserService.login({
                 username: user.username,
                 password: user.password
             })
-                .then(function(response){
-                    if(response.data) {
-                        UserService.setCurrentUser(response.data);
+                .then(function(res){
+                    if(res.data) {
+                        UserService.setCurrentUser(res.data);
                         $location.url("/profile");
-                    }
-                    else{
-                        vm.message='Credentials does not match';
                     }
                 });
         }

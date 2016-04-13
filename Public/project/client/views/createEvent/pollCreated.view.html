@@ -1,5 +1,5 @@
 <div class="register-login-form container">
-    <h2>Thanks, "username",</h2><br>
+    <h2>Thanks, {{currentUser.name}},</h2><br>
     <h3>Your poll has been created.</h3><br>
     The following two links have been sent to "email" in one e-mail each.<br>
     <a href="#">If you do not receive the e-mails...</a><br><br>
@@ -8,7 +8,7 @@
     <div>
         <h4>Participation Link</h4>
         Send this to anyone you wish to invite &nbsp;<button class="btn btn-default">Copy link </button><br>
-        <a href="#">url1</a><br>
+        <a href=$location.url("/event/{{event._id}}/poll)>url1</a><br>
 
         Invite by e-mail&nbsp;<span class="glyphicon glyphicon-envelope btn btn-default "></span>
         <br><br>

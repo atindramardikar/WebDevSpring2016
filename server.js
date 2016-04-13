@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
+var passport      = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 
@@ -30,6 +32,8 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 var uuid= require('node-uuid');
 
@@ -44,6 +48,6 @@ app.get('/env', function(req, res){
 });
 
 require("./Public/assignment/server/app.js")(app, null, mongoose);
-require("./Public/project/server/app.js")(app, uuid);
+require("./Public/project/server/app.js")(app,  null, mongoose);
 
 app.listen(port, ipaddress);

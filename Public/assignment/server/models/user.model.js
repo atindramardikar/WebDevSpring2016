@@ -11,7 +11,7 @@ module.exports = function(db,mongoose) {
     var api = {
         findUserByCredentials: findUserByCredentials,
         findUserByUsername:findUserByUsername,
-        getUsers: getUsers,
+        findAllUsers: getUsers,
         createUser: createUser,
         deleteUserById: deleteUserById,
         findUserById:findUserById,
@@ -136,7 +136,8 @@ module.exports = function(db,mongoose) {
                 password: user.password,
                 firstName: user.firstName,
                 lastName: user.lastName,
-                emails: user.emails
+                emails: user.emails,
+                roles: user.roles
             }, function (err, doc) {
             if (err) {
                 // reject promise if error

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('EventSchedulerApp')
-        .controller('DateController', function($rootScope, $location) {
+        .controller('DateController', function(EventService, $rootScope, $location) {
 
             var vm =this;
             vm.activeDate;
@@ -10,7 +10,7 @@
             if(!$rootScope.selectedDates)
                 $rootScope.selectedDates =[];
 
-                    this.type = 'range';
+                    this.type = 'individual';
 
             vm.removeFromSelected = function(dt) {
                 $rootScope.selectedDates.splice($rootScope.selectedDates.indexOf(dt), 1);
@@ -21,7 +21,13 @@
                     vm.errormessage = "Select atleast one date";
                     return;
                 }
-                $rootScope.event.dateArray = $rootScope.selectedDates;
+
+
+             //   for(var i=0;i<$rootScope.selectedDates.length;i++) {
+               //     $rootScope.event.schedule = [{"date": $rootScope.selectedDates[i], "times": ""}];
+               // }
+               // console.log($rootScope.event);
+               // EventService.createEventForUser($rootScope.currentUser._id,$rootScope.event);
                 $location.url("/timeProposal");
 
             }

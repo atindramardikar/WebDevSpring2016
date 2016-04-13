@@ -16,7 +16,8 @@
             deleteEventById: deleteEventById,
             updateEventById: updateEventById,
             findDetailsForEvent : findDetailsForEvent,
-            createEvent : createEvent
+            createEvent : createEvent,
+            findEventById : findEventById
         };
         return api;
 
@@ -42,7 +43,13 @@
 
         function findDetailsForEvent(eventId)
         {
+            console.log(eventId);
             return $http.get("/api/project/event/"+eventId+"/details");
+        }
+
+        function findEventById(eventId)
+        {
+            return $http.get("/api/project/event/"+eventId);
         }
 
 

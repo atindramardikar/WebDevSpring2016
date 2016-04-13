@@ -25,6 +25,7 @@
 
         function renderEvents(response){
             vm.userEvents = response.data;
+            console.log(vm.userEvents);
         }
 
         function addEvent(event) {
