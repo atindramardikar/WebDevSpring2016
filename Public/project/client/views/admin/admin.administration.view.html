@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<div class="register-login-form">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="#/event/{{model.eventId}}/admin-table">Table-view</a></li>
+        <li role="presentation" class="active"><a>Administration</a></li>
+    </ul>
+
+    <h2>Participation Link</h2>
+    <input type="text" readonly>
+
+    <h3>Participants</h3>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"><a href="#/event/{{model.eventId}}/admin-invite">
+        Invite Participants </a></span><br>
+    <span class="glyphicon glyphicon-envelope" aria-hidden="true"> Contact Invitees</span><br>
+    <div data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash" aria-hidden="true" > Delete Participants</span></div><br>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Delete all</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete all participants?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Yes,delete</button>
+            </div>
+        </div>
+    </div>
+</div>

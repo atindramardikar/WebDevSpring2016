@@ -1,70 +1,57 @@
-/**
- * Created by Sanjanamanoj on 2/19/2016.
- */
-"use strict";
-(function()
-{
+(function(){
     angular
         .module("EventSchedulerApp")
-        .factory("UserService",UserService);
+        .factory("UserService", UserService);
 
-    function UserService($http, $rootScope)
-    {
-
-       // var fakeData = [];
-
-        var api=
-        {
-            findUserByCredentials : findUserByCredentials,
-            findAllUsers : findAllUsers,
-            createUser : createUser,
-            deleteUserById : deleteUserById,
-            updateUser : updateUser,
-            getCurrentUser: getCurrentUser,
-            setCurrentUser: setCurrentUser
+    function UserService($http, $rootScope) {
+        var api = {
+            login: login,
+            logout: logout,
+            register: register,
+            findAllUsers: findAllUsers,
+            deleteUser: deleteUser,
+            updateUser: updateUser,
+            createUser: createUser,
+            setCurrentUser: setCurrentUser,
+            getCurrentUser: getCurrentUser
         };
         return api;
 
-        function findUserByCredentials(credentials)
-        {
-           // console.log(credentials);
-            return $http.get("/api/project/user?email="+credentials.email +"&password="+credentials.password);
+        function logout() {
+            return $http.post("/api/project/logout");
         }
 
-        function findAllUsers()
-        {
+        function createUser(user) {
+            return $http.post('/api/project/user', user);
+        }
+
+        function updateUser(userId, user) {
+            return $http.put('/api/project/user/'+userId, user);
+        }
+
+        function deleteUser(userId) {
+            return $http.delete('/api/project/user/'+userId);
+        }
+
+        function findAllUsers() {
             return $http.get("/api/project/user");
         }
 
-        function createUser(user)
-        {
-            return $http.post("/api/project/user",user);
+        function register(user) {
+            return $http.post("/api/project/register", user);
         }
 
-        function deleteUserById(userId)
-        {
-            return $http.delete("/api/project/user/" + userId);
+        function login(user) {
+            console.log(user);
+            return $http.post("/api/project/login", user);
         }
 
-        function updateUser(userId,user)
-        {
-            console.log("in user services");
-           // console.log(user);
-            return $http.put("/api/project/user/" + userId, user);
-        }
-
-
-        function setCurrentUser(user)
-        {
+        function setCurrentUser(user){
             $rootScope.currentUser = user;
-            console.log($rootScope.currentUser);
         }
 
-        function getCurrentUser()
-        {
-            return $rootScope.currentUser;
+        function getCurrentUser(){
+            return $http.get("/api/project/loggedin");
         }
-
-
     }
 })();

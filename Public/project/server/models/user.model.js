@@ -11,9 +11,35 @@ module.exports = function(db, mongoose) {
         findAllUsers: findAllUsers,
         createUser: createUser,
         deleteUserById: deleteUserById,
-        updateUser:updateUser
+        updateUser:updateUser,
+        findUserByEmail: findUserByEmail,
+        findUserByGoogleId: findUserByGoogleId,
+        findUserByFacebookId: findUserByFacebookId
     };
     return api;
+
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+    }
+
+    function findUserByGoogleId(googleId) {
+        return UserModel.findOne({'google.id': googleId});
+    }
+
+    function findUserByEmail(email)
+    {
+        var deferred = q.defer();
+        UserModel.findOne({email:email},function(err,doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
+    }
+
 
     function findUserByCredentials(credentials) {
         var deferred = q.defer();

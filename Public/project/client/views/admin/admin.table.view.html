@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<div>
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a>Table-view</a></li>
+        <li role="presentation"><a href="#/event/{{model.eventId}}/admin-administration">Administration</a></li>
+    </ul>
+    <h1>{{model.event.title}}</h1>
+    Poll hosted by {{model.event.name}}<br>
+    Where : {{model.event.address}}
+    <div class="form-horizontal table-responsive">
+        <table class="table" style="text-align: center">
+            <thead >
+
+            <tr>
+                <th></th>
+                <th ng-repeat=" d in model.event.schedule" colspan="{{d.times.length}}">
+
+                    {{d.date | date : 'fullDate'}}
+
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th ng-repeat=" t in model.slots">
+
+                    {{t | date : 'HH:mm:ss'}}
+
+                </th>
+            </tr>
+
+
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" class="form-control" placeholder="Your Name" style="min-width: 200px;max-width: 200px"></td>
+                <td ng-repeat=" t in model.slots">
+                    <input type="radio">
+                </td>
+
+            </tr>
+            <tr>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

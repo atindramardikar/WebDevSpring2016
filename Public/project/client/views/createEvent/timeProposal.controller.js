@@ -9,15 +9,16 @@
         var vm = this;
         vm.update = update;
         vm.change = change;
+        vm.errormessage="";
         vm.timeSlotsArray = [1];
-        $rootScope.event.schedule =[{}];
+        $rootScope.event.schedule =[];
 
         for(var i = 0; i < $rootScope.selectedDates.length; i++){
            var temp=
                {
                    "date": $rootScope.selectedDates[i],
                    "times": []
-                }
+                };
             $rootScope.event.schedule[i] = temp;
 
         }

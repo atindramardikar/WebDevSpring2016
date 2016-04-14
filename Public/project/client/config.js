@@ -1,9 +1,13 @@
+
+
+
+
 (function(){
     angular
         .module("EventSchedulerApp")
         .config(configuration);
 
-    function configuration($routeProvider){
+    function configuration($routeProvider, $httpProvider){
         $routeProvider
             .when("/home",{
                 templateUrl: "views/home/home.view.html"
@@ -35,16 +39,19 @@
                 templateUrl: "views/createEvent/dateProposal.view.html",
                 controller: "DateController",
                 controllerAs: "app"
+
             })
             .when("/invite",{
                 templateUrl: "views/createEvent/invite.view.html",
                 controller: "InviteController",
                 controllerAs: "model"
+
             })
             .when("/pollCreated",{
                 templateUrl: "views/createEvent/pollCreated.view.html",
                 controller:"PollCreatedController",
                 controllerAs:"model"
+
             })
             .when("/event/:eventId/poll", {
                 templateUrl: "views/poll/poll.view.html",
@@ -71,10 +78,25 @@
                 controller: "DetailsController",
                 controllerAs: "model"
             })
-
+            .when("/event/:eventId/admin-table",{
+                templateUrl:"views/admin/admin.table.view.html",
+                controller: "AdminTableController",
+                controllerAs:"model"
+            })
+            .when("/event/:eventId/admin-administration",{
+                templateUrl:"views/admin/admin.administration.view.html",
+                controller: "AdminAdministrationController",
+                controllerAs:"model"
+            })
+            .when("/event/:eventId/admin-invite",{
+                templateUrl:"views/admin/admin.invite.view.html",
+                controller: "AdminInviteController",
+                controllerAs:"model"
+            })
 
             .otherwise({
                 redirectTo: "/home"
             })
             }
+
 })();

@@ -1,9 +1,8 @@
-<div class="register-login-form container">
-
-    <form class="form-horizontal">
+<div class="container-fluid">
         <div style="font-size: large">
 
-            <strong style="color: #428bca"> Event</strong> &nbsp; <span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            <strong style="color: darkorange"> Event</strong> &nbsp;
+            <span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Date Proposal &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Time Proposal &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Settings &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
@@ -12,6 +11,8 @@
             <br>
         </div>
         <div ng-show="model.errormessage" class="alert alert-danger" role="alert">{{model.errormessage}}</div>
+        <div class="container-fluid">
+            <form class="form-horizontal">
         <div class="form-group">
             <label class="col-lg-4 control-label">Title</label>
             <div class="col-lg-8">
@@ -53,4 +54,5 @@
             </div>
         </div>
     </form>
+</div>
 </div>

@@ -1,9 +1,9 @@
 <div align="center">
     <div align="center" class="register-login-form">
         <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
-        <input type="image" src="css/btn_google_signin_dark_normal_web@2x.png" width="200" height="50">
+        <a href="/auth/google" class = "btn" style="background-color: #b03911; color:white;width: 150px"><span class ="fa fa-google" style="color: white; font-size: 25px"></span> </a>
         &nbsp;&nbsp;
-        <input type="image" src="css/facebook.png" width="200" height="50"><br>
+        <a href="/auth/facebook" class = "btn" style="background-color: #4267B2; color:white; width: 150px"><span class ="fa fa-facebook-official" style="color: white; font-size: 25px"></span> </a>
         <p> -------------OR-------------</p>
 
         <form class="form-horizontal">
@@ -34,9 +34,9 @@
             </div>
 
         </form>
-        <div  class="modal-footer">
+        <div class="col-sm-offset-8 col-sm-5">
             Already Have an account?
-            <a ng-click="noAccount()" href="#/login"> <strong style="color: midnightblue">Log In</strong> </a>
+            <a ng-click="noAccount()" href="#/login"><strong> Log In </strong></a>
         </div>
 
     </div>

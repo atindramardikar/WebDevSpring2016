@@ -1,9 +1,9 @@
-<div>
+<div class="container-fluid">
     <div class="register-login-form">
         <div style="font-size: large">
 
-            <strong style="color: #428bca">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
-            <strong style="color: #428bca">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            <strong style="color: darkorange">Event</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
+            <strong style="color: darkorange">Date Proposal</strong> &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Time Proposal &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Settings &nbsp;<span class="glyphicon glyphicon-triangle-right" style="font-size: 13px" aria-hidden="true"></span>
             Invite
@@ -19,11 +19,11 @@
                 <td style='width:50px'>
                 </td>
                 <td>
-                    <div ng-show="selectedDates.length>0">
-                        <strong>Selected Dates:</strong>
+                    <div ng-show="selectedDates.length>0" style="font-size: medium">
+                        <strong style="color: darkorange">Selected Dates:</strong>
                         <div>
                             <div ng-repeat='d in selectedDates | orderBy:identity:false'>
-                                <a><span ng-click='app.removeFromSelected(d)' class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                <a><span ng-click='app.removeFromSelected(d)' style="color: #8f8f8f" class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 {{d | date : 'fullDate'}}
                             </div>
                         </div>

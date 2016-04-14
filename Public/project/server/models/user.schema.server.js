@@ -8,6 +8,14 @@ module.exports = function(mongoose)
     ({
         email: String,
         password: String,
+        google:   {
+            id:    String,
+            token: String
+        },
+        facebook:   {
+            id:    String,
+            token: String
+        },
         name: String,
         language: String,
         dob: Date,

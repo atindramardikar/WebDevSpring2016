@@ -5,67 +5,37 @@
                     <h1>{{model.event.title}}</h1>
                     Poll hosted by {{model.event.name}}<br>
                     Where : {{model.event.address}}
-                    <table class="table table-bordered" style="text-align: center">
-                        <thead>
+    <div class="table-responsive">
+                    <table class="table" style="text-align: center">
+                        <thead >
+
                         <tr>
-                            <th ng-repeat=" d in model.event.schedule">
+                            <th></th>
+                            <th ng-repeat=" d in model.event.schedule" colspan="{{d.times.length}}">
                                 {{d.date | date : 'fullDate'}}
                             </th>
                         </tr>
                         <tr>
-                            <th ng-repeat="d in model.event.schedule">
-                            <div style="display: inline-table"  ng-repeat=" t in d.times">
+                            <th></th>
+                            <th ng-repeat=" t in model.slots">
                                 {{t | date : 'HH:mm:ss'}}
-                            </div>
                             </th>
                         </tr>
+
+
                         </thead>
                         <tbody>
-                        <tr class="danger">
-                            <td>
-                                AAA1
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="Your Name" style="min-width: 200px;max-width: 200px"></td>
+                            <td ng-repeat=" t in model.slots">
+                                <input type="radio">
                             </td>
-                            <td>
-                                AAA2
-                            </td>
-                            <td>
-                                AAA3
-                            </td>
-                        </tr>
-                        <tr class="danger">
-                            <td>
-                                AAA1
-                            </td>
-                            <td>
-                                AAA2
-                            </td>
-                            <td>
-                                AAA3
-                            </td>
+
                         </tr>
                         <tr>
-                            <td class="danger">
-                                AAA1
-                            </td>
-                            <td class="success">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            </td>
-                            <td class="danger">
-                                AAA3
-                            </td>
+
                         </tr>
                         </tbody>
                     </table>
-
-<div>
-    <div style="display: inline-table" ng-repeat="d in model.event.schedule">
-    {{d.date | date : 'fullDate'}} &nbsp;
-    </div>
-    <br>
-    <div style="display: inline-block" ng-repeat="d in model.event.schedule">
-        <div style="display: inline-block" ng-repeat="t in d.times">
-            {{t | date : 'HH:mm:ss'}}
-        </div>
-</div>
     </div>
         </div>

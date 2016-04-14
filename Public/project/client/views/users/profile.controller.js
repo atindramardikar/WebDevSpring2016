@@ -19,11 +19,12 @@
         return init();
 
         function update(user) {
+            console.log(vm.cu);
             UserService
-                .updateUser(vm.cu._id,user)
+                .updateUser(user._id,user)
                 .then(function(response){
                     if(response.data) {
-                        UserService.setCurrentUser(response.data);
+                        UserService.setCurrentUser(user);
                         $location.url("/profile");
                     }
                 });

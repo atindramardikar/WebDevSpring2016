@@ -20,13 +20,10 @@
             if(!user) {
                 return;
             }
-            UserService.findUserByCredentials({
-                    email: user.email,
-                    password: user.password
-                })
+            UserService.login(user)
                 .then(function(response){
                     if(response.data) {
-                        console.log(response.data);
+                       // console.log(response.data);
                         UserService.setCurrentUser(response.data);
                         $location.url("/profile");
                     }
