@@ -1,5 +1,5 @@
 <div>
-    <div class="register-login-form">
+    <div class="container-fluid">
         <div ng-show="errormessage" class="alert alert-danger" role="alert">{{errormessage}}</div>
         <div style="font-size: large">
 
@@ -26,9 +26,9 @@
                 <tr ng-repeat="d in selectedDates | orderBy:identity:false">
                     <div>
                     <td>
-                        <a><span ng-click='model.removeFromSelected(d)' class="glyphicon glyphicon-trash" style=" font-size: 20px" aria-hidden="true"></span></a>
+                        <a><span ng-click='model.removeFromSelected(d)' class="glyphicon glyphicon-trash" style=" font-size: 20px; color: #8f8f8f" aria-hidden="true"></span></a>
                     </td>
-                    <td>
+                    <td style="font-size: medium">
                         <strong>{{d | date : 'fullDate'}}</strong>
                     </td>
                     <td  ng-repeat="n in model.timeSlotsArray">
@@ -40,8 +40,10 @@
             </table>
         </div>
         <a href="" ng-click="model.addSlots()">Add time slot for all dates</a>
+        <br>
+        <br>
         <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-5">
+            <div class="col-lg-10 col-lg-offset-2">
                 <button ng-click="$location.url('/dateProposal')" type="reset" class="btn btn-default">Back</button>
                 <button ng-click='model.update(model.event)' type="submit" class="btn btn-primary">Next</button>
             </div>

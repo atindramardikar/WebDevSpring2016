@@ -26,14 +26,6 @@
                 vm.errormessage="Enter the event title";
                 return;
             }
-            if(!event.address){
-                vm.errormessage="Enter the event location";
-                return;
-            }
-            if(!event.description){
-                vm.errormessage="Enter the event description";
-                return;
-            }
             if(!event.name){
                 vm.errormessage="Enter your name";
                 return;
