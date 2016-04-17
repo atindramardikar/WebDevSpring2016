@@ -4,10 +4,12 @@
         .module("EventSchedulerApp")
         .controller("HomeController",HomeController);
 
-    function HomeController($scope) {
-        $scope.event=event;
+    function HomeController($rootScope,$location) {
+        $rootScope.event=event;
+        window.onbeforeunload=null;
         function event(){
-            $scope.$location.url("/event");
+           $location.url("/event");
+            $rootScope.event=null;
         }
     }
 })();

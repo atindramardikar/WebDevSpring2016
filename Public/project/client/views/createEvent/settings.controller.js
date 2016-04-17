@@ -9,7 +9,7 @@
         var vm = this;
         vm.update = update;
         vm.noAction=noAction;
-
+        vm.message=null;
         function init() {
 
         }
@@ -19,7 +19,13 @@
         {
                 $rootScope.event.hidden = event.hidden;
                 $rootScope.event.limit = event.limit;
-                $rootScope.event.oneOption=event.oneOption;
+            if(event.limit){
+                if(!event.limitNumber){
+                    vm.message='Enter the participation limit';
+                    return
+                }
+                $rootScope.event.limitNumber = event.limitNumber;
+            }
 
             console.log($rootScope.event);
             $location.url('/invite');
@@ -27,9 +33,8 @@
 
         function noAction()
         {
-            $rootScope.event.hidden = "false";
-            $rootScope.event.limit = "false";
-            $rootScope.event.oneOption= "false";
+            $rootScope.event.hidden = false;
+            $rootScope.event.limit = false;
 
             console.log($rootScope.event);
             $location.url('/invite');

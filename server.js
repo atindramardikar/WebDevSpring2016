@@ -9,6 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 
+
 var connectionString = 'mongodb://127.0.0.1:27017/WebDev';
 
 // use remote connection string
@@ -48,6 +49,6 @@ app.get('/env', function(req, res){
 });
 
 require("./Public/assignment/server/app.js")(app, null, mongoose);
-require("./Public/project/server/app.js")(app,  null, mongoose);
+require("./Public/project/server/app.js")(app,  null, mongoose, uuid);
 
 app.listen(port, ipaddress);

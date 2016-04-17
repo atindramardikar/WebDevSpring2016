@@ -9,6 +9,10 @@
         <br>
         <br>
     </div>
+    <div ng-show="model.errormessage" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{model.errormessage}}
+    </div>
     <div class="col-lg-10 col-lg-offset-1">
         <h3>Sharing settings</h3>
         <div class="form-group">

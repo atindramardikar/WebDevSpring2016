@@ -1,7 +1,5 @@
-/**
- * Created by Sanjanamanoj on 3/24/2016.
- */
-module.exports = function(app, eventModel) {
+
+module.exports = function(app, eventModel,uuid) {
     app.get("/api/project/user/:userId/event", getEventsForUser);
     app.get("/api/project/event/:eventId/details", findDetailsForEvent);
     app.get("/api/project/event/:eventId",findEventById);
@@ -9,9 +7,12 @@ module.exports = function(app, eventModel) {
     app.post("/api/project/user/:userId/event", createEventForUser);
     app.post("/api/project/event",createEvent);
     app.put("/api/project/event/:eventId", updateEventById);
+    app.put("/api/project/event/:id/participant", deleteParticipant);
 
     function createEvent(req,res){
         var event = req.body;
+        console.log("yooo");
+        event.adminId=uuid.v1();
         eventModel.createEvent(event)
             .then(
                 function(doc){
@@ -78,6 +79,32 @@ module.exports = function(app, eventModel) {
             );
     }
 
+    function deleteParticipant(req, res){
+        //console.log(req.body);
+        var eventId = req.params.id;
+        var obj = req.body;
+        var date=req.body.date;
+        var time = req.body.time;
+        var participantIndex = req.body.participantIndex;
+        eventModel.findEventById(eventId)
+            .then(function(event){
+                    //console.log("here"+event);
+                    eventModel.deleteParticipant(event, date, time, participantIndex)
+                        .then(
+                            function(doc){
+                                res.json(doc);
+                            },
+                            function(err){
+                                res.status(400).send(err);
+                            }
+                        );
+                },
+                function(err){
+                    res.status(400).send(err);
+                })
+
+    }
+
     function createEventForUser(req, res) {
         var userId = req.params.userId;
         var event = req.body;
@@ -94,6 +121,7 @@ module.exports = function(app, eventModel) {
     }
 
     function updateEventById(req, res) {
+        console.log("calling server");
         var id = req.params.eventId;
         var event = req.body;
         eventModel.updateEvent(id, event)

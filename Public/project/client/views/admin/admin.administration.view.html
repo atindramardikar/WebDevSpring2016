@@ -3,7 +3,7 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <div class="register-login-form">
     <ul class="nav nav-pills">
-        <li role="presentation"><a href="#/event/{{model.eventId}}/admin-table">Table-view</a></li>
+        <li role="presentation"><a href="#/event/{{model.eventId}}/{{model.adminId}}/admin-table">Table-view</a></li>
         <li role="presentation" class="active"><a>Administration</a></li>
     </ul>
 
@@ -11,7 +11,7 @@
     <input type="text" readonly>
 
     <h3>Participants</h3>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"><a href="#/event/{{model.eventId}}/admin-invite">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"><a href="#/event/{{model.eventId}}/{{model.adminId}}/admin-invite">
         Invite Participants </a></span><br>
     <span class="glyphicon glyphicon-envelope" aria-hidden="true"> Contact Invitees</span><br>
     <div data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash" aria-hidden="true" > Delete Participants</span></div><br>

@@ -14,12 +14,13 @@ module.exports = function(app, userModel) {
     app.put('/api/project/user/:id', updateUser);
     app.delete('/api/project/user/:id', deleteUser);
 
+
 //    app.get   ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
     app.get   ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/#/profile',
-            failureRedirect: '/#/login'
+            successRedirect: '/project/client/#/profile',
+            failureRedirect: '/project/client/#/login'
         }), function(req, res){
             console.log('/auth/facebook/callback');
             res.send(200);
@@ -28,8 +29,8 @@ module.exports = function(app, userModel) {
     app.get   ('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get   ('/auth/google/callback',
         passport.authenticate('google', {
-                successRedirect: '/#/profile',
-                failureRedirect: '/#/login'
+                successRedirect: '/project/client/#/profile',
+                failureRedirect: '/project/client/#/login'
            }));
 
        var googleConfig = {
@@ -38,8 +39,8 @@ module.exports = function(app, userModel) {
             callbackURL     : "http://127.0.0.1:3000/auth/google/callback"
         };
     var facebookConfig = {
-        clientID        : "164436443950632",
-        clientSecret    : "3ed9c339070979b44850d41ac504f11b",
+        clientID        : "1595960087361230",
+        clientSecret    : "4062899a78e33b5ce2cde9cea4f8a429",
         callbackURL     : "http://127.0.0.1:3000/auth/facebook/callback"
     };
     passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -58,8 +59,7 @@ module.exports = function(app, userModel) {
                     } else {
                         var names = profile.displayName.split(" ");
                         var newFacebookUser = {
-                            lastName:  names[1],
-                            firstName: names[0],
+                            name:  names[0]+" "+names[1],
                             email:     profile.emails ? profile.emails[0].value:"",
                             facebook: {
                                 id:    profile.id,
@@ -72,15 +72,15 @@ module.exports = function(app, userModel) {
                 function(err) {
                     if (err) { return done(err); }
                 }
+            )
+            .then(
+                function(user){
+                    return done(null, user);
+                },
+                function(err){
+                    if (err) { return done(err); }
+                }
             );
-            //.then(
-            //    function(user){
-            //        return done(null, user);
-            //    },
-            //    function(err){
-            //        if (err) { return done(err); }
-            //    }
-            //);
     }
 
 
@@ -94,7 +94,7 @@ module.exports = function(app, userModel) {
                     } else {
                         var newGoogleUser = {
                             //lastName: profile.name.familyName,
-                            name: profile.name.givenName,
+                            name: profile.name.givenName + profile.name.familyName,
                             email: profile.emails[0].value,
                             google: {
                                 id:          profile.id,
@@ -102,6 +102,7 @@ module.exports = function(app, userModel) {
                             }
                         };
                         return userModel.createUser(newGoogleUser);
+
                     }
                 },
                 function(err) {
@@ -110,6 +111,8 @@ module.exports = function(app, userModel) {
             )
             .then(
                 function(user){
+                    //console
+                    //req.session.currentUser = user;
                     return done(null, user);
                 },
                 function(err){
@@ -207,6 +210,9 @@ module.exports = function(app, userModel) {
             );
     }
 
+
+
+
     function updateUser(req, res) {
         var user = req.body;
         var userId = req.params.id;
@@ -227,13 +233,16 @@ module.exports = function(app, userModel) {
     function createUser(req,res)
     {
         var newUser = req.body;
+        console.log("call");
         var user = userModel.createUser(newUser)
             .then(
                 function(doc){
+                    console.log("Helooooooo");
                     req.session.currentUser = doc;
                     res.json(doc);
                 },
                 function(err){
+                    console.log("nooooooo");
                     res.status(400).send(err);
                 }
             );

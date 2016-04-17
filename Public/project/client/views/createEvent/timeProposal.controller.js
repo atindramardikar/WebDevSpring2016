@@ -9,28 +9,48 @@
         var vm = this;
         vm.update = update;
         vm.change = change;
+        vm.timeval='12:00';
         vm.errormessage="";
         vm.timeSlotsArray = [1];
-        $rootScope.event.schedule =[];
+        //vm.alltimes=[];
+        var x = 5; //minutes interval
+        vm.alltimes = []; // time array
+        var tt = 0; // start time
+        var ap = ['AM', 'PM']; // AM-PM
 
-        for(var i = 0; i < $rootScope.selectedDates.length; i++){
+//loop to increment the time and push results in array
+        for (var i=0;tt<24*60; i++) {
+            var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
+            var mm = (tt%60); // getting minutes of the hour in 0-55 format
+            vm.alltimes[i] = ("0" + (hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2) + ap[Math.floor(hh/12)]; // pushing data in array in [00:00 - 12:00 AM/PM format]
+            tt = tt + x;
+        }
+        //$rootScope.event.schedule =[];
+
+        /*for(var i = 0; i < $rootScope.selectedDates.length; i++){
            var temp=
                {
                    "date": $rootScope.selectedDates[i],
-                   "times": []
+                   "times": [{
+                       time: null,
+                       participants:[]
+                   }]
                 };
             $rootScope.event.schedule[i] = temp;
 
-        }
+        }*/
 
 
         function change(n,d,index){
             for(var i = 0; i < $rootScope.event.schedule.length; i++){
                 if(d === $rootScope.event.schedule[i].date){
-                    if(n.getTime())
-                    $rootScope.event.schedule[i].times[index] = n.getTime();
+                    //if(n.getTime())
+                    //n=new Date(new Date(n).getHours()+":"+new Date(n).getMinutes());
+                    console.log(n);
+                    $rootScope.event.schedule[i].times[index] = {time:n, participants:[]};
                 }
             }
+            console.log($rootScope.event.schedule);
         }
 
 
@@ -59,7 +79,11 @@
 
         };
         vm.addSlots=function(){
-            vm.timeSlotsArray.push(vm.timeSlotsArray.length+1);
+
+            //vm.timeSlotsArray.push(vm.timeSlotsArray.length+1);
+            for(var i in $rootScope.event.schedule){
+                    $rootScope.event.schedule[i].times.push({"time":null,"participants":[]});
+            }
         }
     }
 })(window.angular);

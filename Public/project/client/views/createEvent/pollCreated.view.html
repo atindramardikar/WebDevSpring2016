@@ -1,23 +1,18 @@
 <div class="register-login-form container">
-    <h2>Thanks, {{event.name}},</h2><br>
+    <h2>Thanks,</h2><br>
     <h3>Your poll has been created.</h3><br>
-    The following two links have been sent to "email" in one e-mail each.<br>
-    <a href="#">If you do not receive the e-mails...</a><br><br>
-
 
     <div>
         <h4>Participation Link</h4>
-        Send this to anyone you wish to invite &nbsp;<button class="btn btn-default">Copy link </button><br>
-        <a href="model.navigate()">url1</a><br>
-
-        Invite by e-mail&nbsp;<span class="glyphicon glyphicon-envelope btn btn-default "></span>
-        <br><br>
+        Send this to anyone you wish to invite<br>
+        <a href="#/event/{{currentEvent._id}}/poll">{{inviteurl}}</a><br>
 
     </div>
-
+    <br>
+    <br>
     <div>
         <h4>Administration link</h4>
         Access this link to change, close or delete this poll<br>
-        <a href="#">url2</a>
+        <a href="#/event/{{currentEvent._id}}/{{currentEvent.adminId}}/admin-administration">{{adminurl}}</a>
     </div>
 </div>

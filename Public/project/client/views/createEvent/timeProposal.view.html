@@ -14,25 +14,26 @@
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th ng-repeat="n in model.timeSlotsArray">
-                        Time {{n}}
-                    </th>
-                </tr>
+                <th></th>
+                <th></th>
+                <th>Time Slots:</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="d in selectedDates | orderBy:identity:false">
+                <tr ng-repeat="d in event.schedule| orderBy:'date':false">
                     <div>
                     <td>
                         <a><span ng-click='model.removeFromSelected(d)' class="glyphicon glyphicon-trash" style=" font-size: 20px; color: #8f8f8f" aria-hidden="true"></span></a>
                     </td>
                     <td style="font-size: medium">
-                        <strong>{{d | date : 'fullDate'}}</strong>
+                        <strong>{{d.date | date : 'fullDate'}}</strong>
                     </td>
-                    <td  ng-repeat="n in model.timeSlotsArray">
-                        <input ng-model= "n" ng-change="model.change(n,d,$index)" class ="time-input" type="time"  class="form-control">
+                    <td  ng-repeat="t in d.times">
+                    <!--    {{t.time}}
+                        <input id="t.time" ng-model="t.time" ng-change="model.change(t.time,d.date,$index)" class ="time-input" type="text"  class="form-control">
+                    -->
+                        <select ng-model="t.time" ng-change="model.change(t.time,d.date,$index)"class="form-control" style="width: 100px">
+                            <option ng-repeat="t1 in model.alltimes">{{t1}}</option>
+                        </select>
                     </td>
                     </div>
                 </tr>

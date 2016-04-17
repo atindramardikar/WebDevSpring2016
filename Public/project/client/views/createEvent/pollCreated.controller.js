@@ -10,15 +10,11 @@
 
     function PollCreatedController(EventService,$location, $rootScope) {
         var vm = this;
-        vm.navigate = navigate;
 
-        function navigate()
-        {
-            $location.url("/event/{{event._id}}/poll");
-        }
+        window.onbeforeunload=null;
 
         function init() {
-
+            EventService.getEvent();
         }
         return init();
 

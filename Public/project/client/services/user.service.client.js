@@ -53,5 +53,6 @@
         function getCurrentUser(){
             return $http.get("/api/project/loggedin");
         }
+
     }
 })();

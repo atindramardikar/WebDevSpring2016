@@ -8,6 +8,7 @@
 
         var vm=this;
         vm.eventId = $routeParams.eventId;
+        vm.adminId = $routeParams.adminId;
         console.log(vm.eventId);
 
     }

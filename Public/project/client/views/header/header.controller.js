@@ -3,7 +3,7 @@
         .module("EventSchedulerApp")
         .controller("HeaderController",HeaderController);
 
-    function HeaderController($scope, $rootScope, $location){
+    function HeaderController($scope, UserService, $location){
         $scope.aboutStyle=null;
         $scope.logout = logout;
         if($scope.$location.url()=="/about"){
@@ -14,8 +14,12 @@
         }
 
         function logout(){
-            $rootScope.currentUser=null;
-            $location.url("/home");
+            UserService
+                .logout()
+                .then(function() {
+                    UserService.setCurrentUser(null);
+                    $location.url("/home");
+                });
         }
     }
 })();

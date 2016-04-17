@@ -1,49 +1,106 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <div>
-    <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a>Table-view</a></li>
-        <li role="presentation"><a href="#/event/{{model.eventId}}/admin-administration">Administration</a></li>
-    </ul>
-    <h1>{{model.event.title}}</h1>
-    Poll hosted by {{model.event.name}}<br>
-    Where : {{model.event.address}}
-    <div class="form-horizontal table-responsive">
-        <table class="table" style="text-align: center">
-            <thead >
+    <div>
+         <h1 ng-mouseenter="editTitle=true" ng-mouseleave="editTitle=false">{{model.event.title}}&nbsp;
+             <a href="#/event"> <span ng-show="editTitle" ng-click="model.updatedate()" style="font-size: 30px;color: #8f8f8f" class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+         </h1>
+        Poll hosted by {{model.event.name}}<br>
+        Where : {{model.event.address}}
+        <br>
+        <div ng-show="model.message" class="alert alert-success" role="alert">
+            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+            {{model.message}}
+        </div>
+        <div ng-show="model.errormessage" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{model.errormessage}}
+        </div>
+        <div ng-show="model.successMessage" class="alert alert-success" role="alert">
+            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+            {{model.successMessage}}
+        </div>
 
-            <tr>
-                <th></th>
-                <th ng-repeat=" d in model.event.schedule" colspan="{{d.times.length}}">
+        <div ng-hide="model.hiddenPoll" class="table-responsive">
+            <table class="table" style="font-size: medium; table-border-color-dark: white">
+                <thead style="color: darkorange">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        <table style="font-size: medium">
+                            <tr>
+                                <th style="width: 100px"> Time </th>
+                                <th style="width: 100px"> Participants</th>
+                            </tr>
+                        </table>
+                    </th>
 
-                    {{d.date | date : 'fullDate'}}
-
-                </th>
-            </tr>
-            <tr>
-                <th></th>
-                <th ng-repeat=" t in model.slots">
-
-                    {{t | date : 'HH:mm:ss'}}
-
-                </th>
-            </tr>
-
-
-            </thead>
-            <tbody>
-            <tr>
-                <td><input type="text" class="form-control" placeholder="Your Name" style="min-width: 200px;max-width: 200px"></td>
-                <td ng-repeat=" t in model.slots">
-                    <input type="radio">
-                </td>
-
-            </tr>
-            <tr>
-
-            </tr>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  ng-repeat="d in model.event.schedule| orderBy:'date':false">
+                    <td style="width: 200px">
+                        {{d.date | date:'fullDate'}}
+                    </td>
+                    <td >
+                        <table style="font-size: medium">
+                            <tbody>
+                            <tr ng-repeat="t in d.times track by $index| orderBy:'time':false">
+                                <td style="min-width:100px;width: 100px">
+                                    {{t.time}}
+                                </td>
+                                <td style="min-width: 200px;width: 200px" ng-repeat="p in t.participants track by $index" ng-init="rowHighlight = []">
+                                    <div style="display: inline-block" ng-mouseenter="rowHighlight[$index] = true" ng-mouseleave="rowHighlight[$index] = false">
+                                        {{p}}
+                                    <div style="display: inline-block" ng-show="rowHighlight[$index]">
+                                    <span style="color: #8f8f8f" ng-click="model.remove(d._id,t._id,$index)" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    <span style="color: #8f8f8f"  ng-click="model.edit(p,d._id,t._id,$index)" data-toggle="modal" data-target="#myModal3" class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                                    </div>
+                                        </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
             </tbody>
-        </table>
+            </table>
+        </div>
+<div ng-show="model.event.nonParticipants.length>0">
+    <Strong style="color: darkorange">Participants who cannot make it:</Strong>
+    <ul>
+        <li ng-repeat="p in model.event.nonParticipants"> {{p}} </li>
+    </ul>
+        <br>
+        <br>
+        </div>
+        <br>
+
     </div>
 </div>
+<div>
+    <a href="">Close Poll</a><br>
+    <a href="">Invite more participants</a>
+</div>
+
+<div id="myModal3" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="model.refresh()">&times;</button>
+                <h4 class="modal-title">Edit Participant</h4>
+            </div>
+            <div class="modal-body">
+                <p>Make changes to the following participant:</p>
+                <input  ng-model="model.participant" type="text">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="model.refresh()">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="model.update(model.participant)">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
