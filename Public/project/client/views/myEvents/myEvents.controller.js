@@ -13,6 +13,7 @@
         vm.selectEvent = selectEvent;
         vm.userEvents = [];
         vm.event = null;
+        window.onbeforeunload=null;
 
         function init () {
             EventService

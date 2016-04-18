@@ -10,7 +10,7 @@
         function sendMail(event){
             if($rootScope.event.invitedEmails){
                 // var invitees=[];
-                event.invitedEmails.trim();
+                //event.invitedEmails.trim();
                 // $rootScope.title=vm.event.title;
                 console.log("invite controller");
                 var mailOptions = {
@@ -84,7 +84,8 @@
                     .updateEventById($rootScope.event._id, $rootScope.event)
                     .then(function(response){
                         sendMail(response.data);
-                        $location.url('/event/' + $rootScope.event._id+ "/" + $rootScope.event.adminId + "/admin-table")
+                        $rootScope.selectedDates=[];
+                        $location.url('/event/' + $rootScope.event._id+ "/" + $rootScope.event.adminId + "/admin-table");
                     });
             }
             else{
@@ -102,6 +103,7 @@
                                 EventService
                                     .setEvent(response.data);
                             }
+                            $rootScope.selectedDates=[];
                             $location.url("/pollCreated");
                         });
                 }
@@ -122,7 +124,8 @@
                                 EventService
                                     .setEvent(response.data);
                             }
-                            $location.url("/pollCreated")
+                            $rootScope.selectedDates=[];
+                            $location.url("/pollCreated");
                         });
 
                 }

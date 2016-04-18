@@ -57,7 +57,7 @@
 
     <br>
     <br>
-    <div ng-show="model.dateOption.length==0" class="alert alert-danger" role="alert">
+    <div ng-show="model.dates.length==0 && !model.closePoll" class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         No more available dates!
     </div>
@@ -65,7 +65,8 @@
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         {{model.pollmessage}}
     </div>
-    <div ng-hide="model.closePoll" class="row">
+    <div ng-hide="model.closePoll || model.dates.length==0">
+    <div class="row">
         <div class="col-md-4">
             Enter Name:
         <input type="text" class="form-control" style="width: 250px" ng-model="model.newParticipant" placeholder="Your Name..">
@@ -90,7 +91,7 @@
                 <button ng-click="model.error(model.newParticipant, model.dateOption,model.timeOption)" data-dismiss="modal" data-target="#myModal2" type="submit" class="btn btn-primary">
                     Save</button>
             </div>
-
+</div>
     </div>
         </div>
 

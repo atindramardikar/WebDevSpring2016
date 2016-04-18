@@ -15,6 +15,7 @@
 
         function init() {
             EventService.getEvent();
+            $rootScope.selectedDates=[];
         }
         return init();
 

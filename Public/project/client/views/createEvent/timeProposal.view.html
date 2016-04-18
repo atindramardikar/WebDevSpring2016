@@ -11,19 +11,17 @@
             <br>
             <br>
         </div>
+        <div ng-show="model.errormessage" class="alert alert-danger" role="alert">{{model.errormessage}}</div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
-                <th></th>
                 <th></th>
                 <th>Time Slots:</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="d in event.schedule| orderBy:'date':false">
                     <div>
-                    <td>
-                        <a><span ng-click='model.removeFromSelected(d)' class="glyphicon glyphicon-trash" style=" font-size: 20px; color: #8f8f8f" aria-hidden="true"></span></a>
-                    </td>
+
                     <td style="font-size: medium">
                         <strong>{{d.date | date : 'fullDate'}}</strong>
                     </td>

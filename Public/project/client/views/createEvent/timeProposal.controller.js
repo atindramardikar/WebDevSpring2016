@@ -57,6 +57,18 @@
 
         function update(){
             //console.log($rootScope.event.schedule);
+            for(var i in $rootScope.event.schedule){
+                var flag= false;
+                for(var j in $rootScope.event.schedule[i].times){
+                    if($rootScope.event.schedule[i].times[j].time){
+                        flag=true;
+                    }
+                    if(!flag){
+                        vm.errormessage = "Please enter atleast one time slot for each date";
+                        return;
+                    }
+                }
+            }
             $location.url("/settings");
 
         }

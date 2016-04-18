@@ -34,8 +34,9 @@
                         vm.event = response.data;
                         vm.hiddenPoll = response.data.hidden;
                         vm.closePoll=response.data.closePoll;
-                        if(vm.closePoll)
-                            vm.pollmessage="Sorry this poll is closed";
+                        if(vm.closePoll) {
+                            vm.pollmessage = "Sorry, this poll is closed";
+                        }
                         console.log(vm.event.limitNumber);
                         if (vm.event.limit) {
                             var flag = false;
