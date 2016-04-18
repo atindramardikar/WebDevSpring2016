@@ -95,7 +95,7 @@
                 if (Date.parse(date) == Date.parse(vm.event.schedule[i].date)) {
                     console.log("date matches");
                     for (var j in vm.event.schedule[i].times) {
-                        if (time == new Date(vm.event.schedule[i].times[j].time).toString().substr(16, 8)) {
+                        if (time == vm.event.schedule[i].times[j].time) {
                             console.log("time matches");
                             vm.event.schedule[i].times[j].participants.push(participant);
                         }
