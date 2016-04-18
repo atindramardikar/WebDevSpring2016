@@ -35,8 +35,10 @@
                     EventService.createEvent($rootScope.event)
                         .then(function (response) {
                             if (response.data) {
-                                $rootScope.inviteurl = "localhost:3000/project/client/#/event/" + response.data._id + "/poll";
-                                $rootScope.adminurl = "localhost:3000/project/client/#/event/" + response.data._id + "/" + response.data.adminId + "/admin-table";
+                                //$rootScope.inviteurl = "localhost:3000/project/client/#/event/" + response.data._id + "/poll";
+                                $rootScope.inviteurl = "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + response.data._id + "/poll";
+                                //$rootScope.adminurl = "localhost:3000/project/client/#/event/" + response.data._id + "/" + response.data.adminId + "/admin-table";
+                                $rootScope.adminurl = "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + response.data._id + "/" + response.data.adminId + "/admin-table";
                                 EventService
                                     .setEvent(response.data);
                             }
