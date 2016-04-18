@@ -11,7 +11,7 @@
         vm.noAction=noAction;
         vm.message=null;
         function init() {
-
+            $rootScope.event.closePoll=false;
         }
         return init();
 

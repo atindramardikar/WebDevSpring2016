@@ -7,6 +7,7 @@
         Poll hosted by {{model.event.name}}<br>
         Where : {{model.event.address}}
         <br>
+        Participation Link: <a>{{model.participationLink}}</a>
         <div ng-show="model.message" class="alert alert-success" role="alert">
             <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
             {{model.message}}
@@ -80,8 +81,9 @@
     </div>
 </div>
 <div>
-    <a href="">Close Poll</a><br>
-    <a href="">Invite more participants</a>
+    <a href="" ng-click="model.closePoll()">Close Poll</a><br>
+    <a href="" data-toggle="modal" data-target="#myModal4">Invite more participants</a><br>
+    <a href="" ng-click="model.sendReminder()" data-dismiss="modal" data-target="#myModal5">Send a reminder to participants</a>
 </div>
 
 <div id="myModal3" class="modal">
@@ -104,3 +106,40 @@
 </div>
 
 
+<div id="myModal4" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="model.refresh()">&times;</button>
+                <h4 class="modal-title">Invite Participants</h4>
+            </div>
+            <div class="modal-body">
+                <p>Enter e-mails of invitees:</p>
+                <textarea style="width:350px;height:150px" ng-model="model.invited" placeholder="Comma separated.."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="model.refresh()">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="model.sendMail()">Send Mail</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal5" class="modal">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="model.refresh()">&times;</button>
+            <h4 class="modal-title">Reminder</h4>
+        </div>
+        <div class="modal-body">
+            <p>Reminders have been sent!</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="model.refresh()">Okay</button>
+        </div>
+    </div>
+</div>
+</div>

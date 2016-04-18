@@ -20,7 +20,8 @@
             findEventById : findEventById,
             deleteParticipant : deleteParticipant,
             setEvent : setEvent,
-            getEvent : getEvent
+            getEvent : getEvent,
+            sendMail: sendMail
         };
         return api;
 
@@ -76,6 +77,10 @@
         function getEvent()
         {
             return $rootScope.currentEvent;
+        }
+
+        function sendMail(mailOptions){
+            return $http.post("/api/project/sendMail",mailOptions);
         }
 
     }

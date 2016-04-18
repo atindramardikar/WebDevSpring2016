@@ -39,6 +39,7 @@
                 return;
             }
             if(!$rootScope.event) {
+                $rootScope.event=null;
                 $rootScope.event =
                 {
                     "id": "",

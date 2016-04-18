@@ -54,52 +54,18 @@
         </tbody>
     </table>
 </div>
-    <!--<div class="table-responsive">
-                    <table class="table">
-                        <thead >
 
-                        <tr>
-                            <th></th>
-                            <th ng-repeat=" d in model.event.schedule track by $index" colspan="{{d.times.length}}" style="font-size: medium">
-                                {{d.date | date : 'fullDate'}}
-                            </th>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <div ng-repeat="d in model.event.schedule track by $index">
-                            <th ng-repeat=" t in d.times track by $index">
-                                {{t | date : 'HH:mm:ss'}}
-                            </th>
-                            </div>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="p in model.event.participants  track by $index">
-                            <td >
-                                <input type="text" ng-model="p" class="form-control" placeholder="Your Name" >
-                            </td>
-                            <td ng-repeat=" t in model.slots track by $index">
-                                <input ng-model="model.choice" type="checkbox">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td >
-                                <input type="text" ng-model="model.newParticipant" class="form-control" placeholder="Your Name" >
-                            </td>
-                            <td ng-repeat=" t in model.slots track by $index">
-                                <input type="checkbox">
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-        <div>-->
     <br>
     <br>
     <div ng-show="model.dateOption.length==0" class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         No more available dates!
     </div>
-    <div class="row">
+    <div ng-show="model.closePoll" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{model.pollmessage}}
+    </div>
+    <div ng-hide="model.closePoll" class="row">
         <div class="col-md-4">
             Enter Name:
         <input type="text" class="form-control" style="width: 250px" ng-model="model.newParticipant" placeholder="Your Name..">

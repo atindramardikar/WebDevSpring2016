@@ -19,7 +19,7 @@ module.exports = function(mongoose)
         everyone:String,
         invite: String,
         participate:Number,
-        invitedEmails:[String],
+        invitedEmails:String,
         closePoll:Boolean,
         nonParticipants:[String]
     }, {collection: 'project.eventScheduler.event'});

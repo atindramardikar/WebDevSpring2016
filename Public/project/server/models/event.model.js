@@ -171,21 +171,8 @@ module.exports = function (db, mongoose) {
                     console.log("splicing");
                     newEvent.schedule[i].times=newEvent.schedule[i].times.splice(j,1);
                 }}}
-        var userEvent = {
-            userId : userId,
-            title : newEvent.title,
-            address: newEvent.address,
-            description:newEvent.description,
-            name:newEvent.name,
-            email:newEvent.email,
-            schedule:newEvent.schedule,
-            hidden:newEvent.hidden,
-            oneOption:newEvent.oneOption,
-            limit:newEvent.limit,
-            participate:newEvent.participate,
-            invitedEmails:newEvent.invitedEmails
-        };
-        EventModel.create(userEvent,function(err,doc){
+        newEvent.userId=userId;
+        EventModel.create(newEvent,function(err,doc){
             if(err){
                 deferred.reject(err);
             }

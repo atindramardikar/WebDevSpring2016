@@ -9,6 +9,7 @@
 
         var vm= this;
         vm.login = login;
+        window.onbeforeunload=null;
 
         function init() {
         }

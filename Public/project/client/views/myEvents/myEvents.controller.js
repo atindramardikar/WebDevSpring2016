@@ -19,6 +19,7 @@
                 .findAllEventsForUser($rootScope.currentUser._id)
                 .then(renderEvents);
             vm.event= null;
+            $rootScope.event=null;
         }
 
         init();

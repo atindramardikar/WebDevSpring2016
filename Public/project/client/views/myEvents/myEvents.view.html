@@ -2,13 +2,15 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<div class="register-login-form">
+<div>
     <legend>My Events</legend>
 
     <div ng-controller="MyEventsController" class="table-responsive">
 
-
-        <table  class="table">
+        <div ng-hide="model.userEvents.length>0" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            You have no events!</div>
+        <table  ng-show="model.userEvents.length>0" class="table" style="font-size: medium">
             <thead>
             <tr>
                 <th>

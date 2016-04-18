@@ -15,7 +15,11 @@
         vm.updateEvent=updateEvent;
         vm.refresh = refresh;
         vm.updatedate=updatedate;
-        //vm.addDate = addDate;
+        vm.sendMail=sendMail;
+        vm.sendReminder = sendReminder;
+        window.onbeforeunload=null;
+        vm.participationLink="";
+        vm.closePoll=closePoll;
         function init(){
             EventService
                 .findDetailsForEvent(vm.eventId)
@@ -25,6 +29,17 @@
                     });
         }
         init();
+        vm.participationLink="http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + vm.eventId + "/poll";
+
+        function closePoll(){
+            vm.event.closePoll=true;
+            EventService
+                .updateEventById(vm.eventId, vm.event)
+                .then(function(response){
+                    init();
+                    vm.message="Poll Closed"
+                });
+        }
 
         function remove(dateId, timeId, participationIndex){
             for(var i in vm.event.schedule){
@@ -90,5 +105,59 @@
                 $rootScope.selectedDates.push(new Date(vm.event.schedule[i].date).setHours(0,0,0,0));
             }
         }
+
+        function sendMail() {
+            // var invitees=[];
+            if (vm.invited) {
+                vm.invited.trim();
+                vm.event.invitedEmails = vm.event.invitedEmails + "," + vm.invited;
+                var mailOptions = {
+                    from: "justintime.scheduler@gmail.com",
+                    to: vm.invited,
+                    subject: "JustInTime Event Invitation",
+                    //generateTextFromHTML: true,
+                    text: "Hello, \n" + vm.event.name + " has invited you to participate in the following event:\n" +
+                    "Event Title: " + vm.event.title +
+                    "\nEvent Location: " + vm.event.address +
+                    "\nParticipation link:\n" +
+                    "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + vm.event._id + "/poll"
+                };
+                EventService.sendMail(mailOptions)
+                    .then(function (response) {
+                        console.log(response.data);
+                    });
+                //$location.url('/event/'+vm.eventId+'/admin-administration');
+                vm.invited = null;
+                EventService.updateEventById(vm.event._id, vm.event)
+                    .then(init);
+            }
+        }
+
+        function sendReminder() {
+            // var invitees=[];
+                var mailOptions = {
+                    from: "justintime.scheduler@gmail.com",
+                    to: vm.event.invitedEmails,
+                    subject: "JustInTime Event Invitation",
+                    //generateTextFromHTML: true,
+                    text: "Hello, \n" + vm.event.name + " has invited you to participate in the following event:\n" +
+                    "Event Title: " + vm.event.title +
+                    "\nEvent Location: " + vm.event.address +
+                    "\nParticipation link:\n" +
+                    "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + vm.event._id + "/poll"
+                };
+                EventService.sendMail(mailOptions)
+                    .then(function (response) {
+                        if(response) {
+                            $('#myModal5').modal('show');
+                        }
+                    },
+                    function(err){
+                    });
+                //$location.url('/event/'+vm.eventId+'/admin-administration');
+                vm.invited = null;
+                EventService.updateEventById(vm.event._id, vm.event)
+                    .then(init);
+            }
     }
 })();

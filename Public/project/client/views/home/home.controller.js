@@ -5,7 +5,8 @@
         .controller("HomeController",HomeController);
 
     function HomeController($rootScope,$location) {
-        $rootScope.event=event;
+        var vm = this;
+        vm.event=event;
         window.onbeforeunload=null;
         function event(){
            $location.url("/event");

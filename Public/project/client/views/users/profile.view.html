@@ -1,13 +1,13 @@
-<div class="register-login-form">
+<div>
     <div class="row">
         <div class="col-sm-6">
             <form class="form-horizontal">
                 <fieldset>
-
                     <legend>Profile Settings</legend>
-
-
-
+                    <div ng-show="model.message" class="alert alert-success" role="alert">
+                        <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                        {{model.message}}
+                    </div>
 
                     <div class="form-group">
                         <label  class="col-lg-4 control-label">Name</label>
@@ -16,19 +16,17 @@
                         </div>
                     </div>
 
-
+                    <div class="form-group">
+                        <label  class="col-lg-4 control-label">Email</label>
+                        <div class="col-lg-8">
+                            <input ng-model="currentUser.email" type="email" class="form-control"  placeholder="Enter email">
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="col-lg-4 control-label">Language</label>
                         <div class="col-lg-8">
                             <input ng-model="currentUser.language" type="text" class="form-control"  placeholder="Enter language">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label  class="col-lg-4 control-label">Date of Birth</label>
-                        <div class="col-lg-8">
-                            <input ng-model="currentUser.dob" type="date" class="form-conrol">
                         </div>
                     </div>
 

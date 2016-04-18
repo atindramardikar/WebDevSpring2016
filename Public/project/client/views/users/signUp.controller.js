@@ -8,7 +8,7 @@
     function SignUpController ( UserService, $location) {
         var vm = this;
         vm.signUp = signUp;
-
+        window.onbeforeunload=null;
 
         function signUp(user) {
             UserService

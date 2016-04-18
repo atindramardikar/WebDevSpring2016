@@ -8,7 +8,7 @@
         var vm = this;
         vm.eventId = $routeParams.eventId;
         console.log(vm.eventId);
-
+        window.onbeforeunload=null;
         vm.slots = [];
         vm.event = null;
         vm.save = save;
@@ -17,6 +17,7 @@
         vm.participants = [];
         vm.dates = [];
         vm.times = [];
+        vm.pollmessage="";
         vm.dateSelected = dateSelected;
 
         function init() {
@@ -32,6 +33,9 @@
 
                         vm.event = response.data;
                         vm.hiddenPoll = response.data.hidden;
+                        vm.closePoll=response.data.closePoll;
+                        if(vm.closePoll)
+                        vm.pollmessage="Sorry this poll is closed";
                         console.log(vm.event.limitNumber);
                         if (vm.event.limit) {
                             var flag = false;
