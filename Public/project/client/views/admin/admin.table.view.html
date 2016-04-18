@@ -81,7 +81,8 @@
     </div>
 </div>
 <div>
-    <a href="" ng-click="model.closePoll()">Close Poll</a><br>
+    <a ng-hide="model.event.closePoll" href="" ng-click="model.closePoll()">Close Poll</a>
+    <a ng-show="model.event.closePoll" href="" ng-click="model.closePoll()">Open Poll</a><br>
     <a href="" data-toggle="modal" data-target="#myModal4">Invite more participants</a><br>
     <a href="" ng-click="model.sendReminder()" data-dismiss="modal" data-target="#myModal5">Send a reminder to participants</a>
 </div>

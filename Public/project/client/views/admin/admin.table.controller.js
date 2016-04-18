@@ -32,12 +32,15 @@
         vm.participationLink="http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + vm.eventId + "/poll";
 
         function closePoll(){
-            vm.event.closePoll=true;
+            vm.event.closePoll=!vm.event.closePoll;
             EventService
                 .updateEventById(vm.eventId, vm.event)
                 .then(function(response){
                     init();
+                    if(vm.event.closePoll)
                     vm.message="Poll Closed"
+                    else
+                    vm.message="Poll opened"
                 });
         }
 
