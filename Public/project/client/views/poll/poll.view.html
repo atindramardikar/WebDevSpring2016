@@ -74,20 +74,20 @@
         <div class="col-md-4">
             Available Dates:
         <select ng-model="model.dateOption" ng-change="model.dateSelected(model.dateOption)"class="form-control" style="width: 250px">
-            <option ng-repeat="d in model.dates">{{d | date : 'fullDate'}}</option>
+            <option ng-repeat="d in model.dates track by $index">{{d | date : 'fullDate'}}</option>
         </select>
             </div>
         <div class="col-md-4" ng-show="model.times.length>0">
             Available Times:
         <select ng-model="model.timeOption" class="form-control" style="width: 250px">
-            <option ng-repeat="d in model.times">{{d}}</option>
+            <option ng-repeat="d in model.times track by $index">{{d}}</option>
         </select>
         </div>
     </div>
     <br>
             <div class="col-lg-10 col-lg-offset-2">
                 <button ng-click="model.cannot(model.newParticipant)" type="reset" class="btn btn-default">Cannot make it</button>
-                <button ng-click="model.error(model.newParticipant, model.dateOption)" data-dismiss="modal" data-target="#myModal2" type="submit" class="btn btn-primary">
+                <button ng-click="model.error(model.newParticipant, model.dateOption,model.timeOption)" data-dismiss="modal" data-target="#myModal2" type="submit" class="btn btn-primary">
                     Save</button>
             </div>
 
