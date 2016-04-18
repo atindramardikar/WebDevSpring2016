@@ -24,12 +24,16 @@
             console.log(vm.cu);
             UserService
                 .updateUser(user._id,user)
-                .then(function(response){
-                    if(response.data) {
-                        UserService.setCurrentUser(user);
-                        vm.message= "Updated Successfully!";
+                .then(function(doc) {
+                        if (doc) {
+                            UserService.setCurrentUser(user);
+                            vm.message = "Updated Successfully!";
+                        }
+                    },
+                    function(err){
+                        console.log(err);
                     }
-                });
+                );
         }
 
     }
