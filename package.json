@@ -25,6 +25,7 @@
   "dependencies": {
     "angular-ui-sortable": "^0.13.4",
     "arrive": "^2.3.1",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^3.4.8",

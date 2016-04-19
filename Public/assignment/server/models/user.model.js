@@ -51,13 +51,10 @@ module.exports = function(db,mongoose) {
             {
                 username: username
             },
-            // doc is unique instance matches predicate
             function(err, doc) {
                 if (err) {
-                    // reject promise if error
                     deferred.reject(err);
                 } else {
-                    // resolve promise
                     deferred.resolve(doc);
                 }
             });

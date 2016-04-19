@@ -32,12 +32,14 @@
 
         var optionMap =
             [
-                {key: "Single Line Text Field", value: "TEXT"},
-                {key: "Multi Line Text Field", value: "TEXTAREA"},
-                {key: "Date Field", value: "DATE"},
-                {key: "Dropdown Field", value: "OPTIONS"},
-                {key: "Checkboxes Field", value: "CHECKBOXES"},
-                {key: "Radio Buttons Field", value: "RADIOS"}
+                {key: "Single Line Text Field", value: "TEXT",label: "New text field"},
+                {key: "Multi Line Text Field", value: "TEXTAREA",label: "New multi line text fiels"},
+                {key: "Date Field", value: "DATE",label: "New date field"},
+                {key: "Dropdown Field", value: "OPTIONS",label: "New dropdown"},
+                {key: "Checkboxes Field", value: "CHECKBOXES", label: "New Checkbox",
+                    options: [{"label": "option1", "value":"option_1"}]},
+                {key: "Radio Buttons Field", value: "RADIOS",label: "New radio button",
+                    options: [{"label": "option1", "value":"option_1"}]}
             ];
 
         function render(response) {
@@ -102,8 +104,30 @@
             }
         }
 
+        function translateLabel(fieldType) {
+            for (var k in optionMap) {
+                if (optionMap[k].key == fieldType){
+                    return optionMap[k].label;
+                }
+            }
+        }
+        function translatePlaceholder(fieldType) {
+            for (var k in optionMap) {
+                if (optionMap[k].key == fieldType){
+                    return optionMap[k].placeholder;
+                }
+            }
+        }
+        function translateOptions(fieldType) {
+            for (var k in optionMap) {
+                if (optionMap[k].key == fieldType){
+                    return optionMap[k].options;
+                }
+            }
+        }
+
         function addField(fieldType) {
-            var field = {"label": "", "type": translateFieldType(fieldType), "placeholder": "", "options": null};
+            var field = {"label": translateLabel(fieldType), "type": translateFieldType(fieldType), "placeholder": translatePlaceholder(fieldType), "options": translateOptions(fieldType)};
             FieldService
                 .createField(formId, field)
                 .then(init);
