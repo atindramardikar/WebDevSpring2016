@@ -12,11 +12,11 @@
         vm.cu=null;
         window.onbeforeunload=null;
         function init() {
-            vm.cu = UserService.getCurrentUser();
+            /*vm.cu = UserService.getCurrentUser();
             console.log(vm.cu);
             if (vm.cu == null) {
                 $location.url("/home");
-            }
+            }*/
         }
         return init();
 

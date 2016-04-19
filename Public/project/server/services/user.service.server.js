@@ -22,7 +22,7 @@ module.exports = function(app, userModel) {
             successRedirect: '/project/client/#/profile',
             failureRedirect: '/project/client/#/login'
         }), function(req, res){
-            console.log('/auth/facebook/callback');
+            console.log("hereee");
             res.send(200);
         });
 
@@ -55,6 +55,7 @@ module.exports = function(app, userModel) {
             .then(
                 function(user) {
                     if(user) {
+                        console.log(user);
                         return done(null, user);
                     } else {
                         var names = profile.displayName.split(" ");
@@ -90,11 +91,14 @@ module.exports = function(app, userModel) {
             .then(
                 function(user) {
                     if(user) {
+                        //console.log(user);
                         return done(null, user);
                     } else {
+                        console.log(profile.name.givenName + profile.name.familyName);
+                        console.log(profile.emails[0].value);
                         var newGoogleUser = {
                             //lastName: profile.name.familyName,
-                            name: profile.name.givenName + profile.name.familyName,
+                            name: profile.name.displayName,
                             email: profile.emails[0].value,
                             google: {
                                 id:          profile.id,
@@ -128,16 +132,16 @@ module.exports = function(app, userModel) {
     }
 
     function deserializeUser(user, done) {
-        userModel
+        /*userModel
             .findUserById(user._id)
             .then(
-                function (user) {
+                function (user) {*/
                     done(null, user);
-                },
+               /* },
                 function (err) {
                     done(err, null);
                 }
-            );
+            );*/
     }
 
     function findUserById(req, res)
@@ -178,9 +182,11 @@ module.exports = function(app, userModel) {
     }
 
     function loggedin(req,res){
+        //console.log(req.user);
+        //res.send(req.isAuthenticated() ? req.user : '0');
+        console.log(req.user);
         res.json(req.session.currentUser);
     }
-
 
 
 
@@ -233,19 +239,31 @@ module.exports = function(app, userModel) {
     function createUser(req,res)
     {
         var newUser = req.body;
-        console.log("call");
-        var user = userModel.createUser(newUser)
-            .then(
-                function(doc){
-                    console.log("Helooooooo");
-                    req.session.currentUser = doc;
-                    res.json(doc);
-                },
+        //console.log("call");
+        userModel.findUserByEmail(newUser.email)
+            .then(function(user){
+                if(!user){
+                    console.log("gonna create");
+                    userModel.createUser(newUser)
+                        .then(
+                            function(doc){
+                                req.session.currentUser = doc;
+                                res.json(doc);
+                            },
+                            function(err){
+                                res.status(400).send(err);
+                            }
+                        );
+                }
+            else{
+                    console.log("user exists");
+                    res.json(null);
+                }},
                 function(err){
-                    console.log("nooooooo");
+
                     res.status(400).send(err);
                 }
-            );
+            )
     }
 
     function authorized(req, res, next) {

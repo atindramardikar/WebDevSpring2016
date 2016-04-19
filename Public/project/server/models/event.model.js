@@ -30,7 +30,7 @@ module.exports = function (db, mongoose) {
         var deferred = q.defer();
         for(var i in newEvent.schedule){
             for(var j in newEvent.schedule[i].times){
-                if(!newEvent.schedule[i].times[j]){
+                if(!newEvent.schedule[i].times[j].time){
                     console.log("splicing");
                     newEvent.schedule[i].times.splice(j,1);
             }}
@@ -187,6 +187,13 @@ module.exports = function (db, mongoose) {
     function updateEvent (id, event) {
         console.log("calling model");
         var deferred = q.defer();
+        for(var i in newEvent.schedule){
+            for(var j in newEvent.schedule[i].times){
+                if(!newEvent.schedule[i].times[j].time){
+                    console.log("splicing");
+                    newEvent.schedule[i].times.splice(j,1);
+                }}
+        }
         EventModel.update({_id:id},{$set:event}, function(err,doc){
             if(err){
                 deferred.reject(err);

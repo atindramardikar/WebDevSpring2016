@@ -141,7 +141,8 @@
         {
             $rootScope.errorMessage = null;
             // User is Authenticated
-            if (user)
+            console.log(user);
+            if (user!== '0')
             {
                 $rootScope.currentUser = user;
                 deferred.resolve();
