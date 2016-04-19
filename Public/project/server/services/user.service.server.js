@@ -183,9 +183,9 @@ module.exports = function(app, userModel) {
 
     function loggedin(req,res){
         //console.log(req.user);
-        //res.send(req.isAuthenticated() ? req.user : '0');
-        console.log(req.user);
-        res.json(req.session.currentUser);
+        res.send(req.isAuthenticated() ? req.user : '0');
+        //console.log(req.user);
+        //res.json(req.session.currentUser);
     }
 
 
