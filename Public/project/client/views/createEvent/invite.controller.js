@@ -48,9 +48,9 @@
                 "Event Title: "+event.title+
                 "\nEvent Location: "+event.address+
                 "\nParticipation link:\n"+
-                "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + event._id + "/poll"+
+                "http://webdev2016-manojsanjana.rhcloud.com/project/client/#/event/" + event._id + "/poll"+
                 "\nAdministration link:\n"+
-                "http://webdev2016-mardikaratindra.rhcloud.com/project/client/#/event/" + event._id + "/" + event.adminId + "/admin-table"
+                "http://webdev2016-manojsanjana.rhcloud.com/project/client/#/event/" + event._id + "/" + event.adminId + "/admin-table"
             };
 
             EventService.sendMail(mailOptions)

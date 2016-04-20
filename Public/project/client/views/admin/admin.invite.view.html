@@ -1,0 +1,24 @@
+<div class=" container">
+
+
+    <div class="col-lg-10 col-lg-offset-1">
+        <h3>Invite Participants</h3>
+        <div></div>
+    </div>
+
+    <div class="col-lg-6 col-lg-offset-1">
+        Invite people to your poll by adding their e-mail address below<br>
+        Type the e-mail addresses here:<br><br>
+        <textarea ng-model = "model.event.invitedEmails" class="form-control" rows="3"></textarea><br>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button ng-click="model.updatedInvitedList(model.event.invitedEmails)" type="reset" class="btn btn-default">Send</button>
+            <button ng-click="model.sendMail()" type="submit" class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
+
+
+</div>

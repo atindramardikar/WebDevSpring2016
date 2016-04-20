@@ -44,7 +44,7 @@
             .when("/login",{
                 templateUrl: "views/users/login.view.html",
                 controller : "LoginController",
-                controllerAs: "model",
+                controllerAs: "model"
             })
             .when("/dateProposal",{
                 templateUrl: "views/createEvent/dateProposal.view.html",
@@ -137,26 +137,20 @@
     {
         var deferred = $q.defer();
 
-        $http.get('/api/project/loggedin').success(function(user)
-        {
-            $rootScope.errorMessage = null;
-            // User is Authenticated
-            console.log(user);
-            if (user!== '0')
+        $http.get('/api/project/check').success(function(user)
             {
-                $rootScope.currentUser = user;
-                deferred.resolve();
-            }
-            // User is Not Authenticated
-            else
-            {
-                //$rootScope.errorMessage = 'You need to log in.';
-                alert("You need to log in.");
-                deferred.reject();
-                $location.url('/login');
-                //$rootScope.danger = "Unable to login";
-            }
-        });
+                console.log(user);
+                if (user !== '0')
+                {
+                    $rootScope.currentUser = user;
+                    deferred.resolve();
+                }
+                else
+                {
+                    deferred.reject();
+                    $location.url('/login');
+                }
+            });
 
         return deferred.promise;
     };
@@ -165,7 +159,7 @@
     {
         var deferred = $q.defer();
 
-        $http.get('/api/project/loggedin').success(function(user)
+        $http.get('/api/project/check').success(function(user)
         {
             // User is Authenticated
             if (user !== '0')
@@ -182,7 +176,7 @@
 
         var deferred = $q.defer();
 
-        $http.get('/api/project/loggedin').success(function(user)
+        $http.get('/api/project/check').success(function(user)
         {
             // User is Authenticated
             if (user !== '0')

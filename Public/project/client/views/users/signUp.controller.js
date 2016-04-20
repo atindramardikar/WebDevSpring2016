@@ -38,10 +38,10 @@
                             vm.message = "Email already exists";
                             return;
                         }
-                        else {
+
                             UserService.setCurrentUser(doc);
                             $location.url("/profile");
-                        }
+
                     },
                     function (err){
                     }

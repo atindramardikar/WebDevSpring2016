@@ -42,7 +42,6 @@
         }
 
         function login(user) {
-            console.log(user);
             return $http.post("/api/project/login", user);
         }
 
@@ -51,7 +50,7 @@
         }
 
         function getCurrentUser(){
-            return $http.get("/api/project/loggedin");
+            return $http.get("/api/project/check");
         }
 
     }
