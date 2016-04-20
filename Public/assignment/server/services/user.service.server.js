@@ -1,5 +1,6 @@
+/*
 var passport =require('passport');
-var LocalStrategy =require('passport-local').Strategy;
+//var LocalStrategy =require('passport-local').Strategy;
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(app, userModel) {
@@ -16,11 +17,11 @@ module.exports = function(app, userModel) {
     app.put("/api/assignment/admin/user/:id", isAdmin, updateUser);
     app.delete("/api/assignment/admin/user/:id", isAdmin, deleteUser);
 
-    passport.use(new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    //passport.use(new LocalStrategy(localStrategy));
+    //passport.serializeUser(serializeUser);
+    //passport.deserializeUser(deserializeUser);
 
-    function localStrategy(username, password, done) {
+    /!*function localStrategy(username, password, done) {
         userModel
             .findUserByUsername(username)
             .then(
@@ -37,7 +38,7 @@ module.exports = function(app, userModel) {
                     }
                 }
             );
-    }
+    }*!/
 
     function serializeUser(user, done) {
         delete user.password;
@@ -248,4 +249,4 @@ module.exports = function(app, userModel) {
             next();
         }
     }
-};
+};*/
