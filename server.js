@@ -40,7 +40,7 @@ var uuid= require('node-uuid');
 
 app.use(express.static(__dirname + '/Public'));
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 app.get('/hello', function(req, res){
     res.send('hello world');
 });
