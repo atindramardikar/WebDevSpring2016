@@ -1,108 +1,437 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
+    <title>Atindra Mardikar</title>
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Page of Atindra Mardikar">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Atindra Mardikar Home</title>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <style>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-    <!-- Custom styles for this template -->
-    <link href="experiments/css/caraousel.css" rel="stylesheet">
-</head>
-<!-- NAVBAR
-================================================== -->
+        .testimonials blockquote {
+            position: relative;
+            background: white;
+            min-height: 150px;
+            margin-top: 20px;
+            margin-bottom: 100px;
+            border: 1px solid #ecedf1;
+        }
+        .testimonials blockquote:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            margin-left: -10px;
+            border-top: 10px solid #ecedf1;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        .testimonials blockquote:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            margin-left: -9px;
+            border-top: 9px solid white;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+        }
+
+        .testimonials blockquote img {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            border: 1px solid #ecedf1;
+            background: white;
+            bottom: -65px;
+            left: 50%;
+            margin-left: -25px;
+        }
+
+        blockquote p.clients-words {
+            font-size: 14px;
+        }
+        span.clients-name {
+            font-size: 14px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+    </style>
+
+</head> 
+
 <body>
-<div class="navbar-wrapper">
-    <div class="container">
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile" style="height: 135px;width:135px;border-radius: 50%;overflow: hidden;border: 2px solid rgb(240, 240, 240);" src="assets/images/hello.png" alt="" />
+                <h1 class="name">Atindra Mardikar</h1>
+                <h3 class="tagline">Software Developer</h3>
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: mardikar.a@husky.neu.edu" style="font-size: 13px">mardikar.a@husky.neu.edu</a></li>
+                    <li class="phone"><i class="fa fa-phone"></i><a href="tel:6178987546" style="font-size: 13px">(617) 898 7546</a></li>
+                    <li class="website"><i class="fa fa-globe"></i><a href="http://www.atindramardikar.com" style="font-size: 13px">www.atindramardikar.com</a></li>
+                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="http://www.linkedin.com/in/atindramardikar" style="font-size: 11px" target="_blank">linkedin.com/in/atindramardikar</a></li>
+                    <li class="github"><i class="fa fa-github"></i><a href="https://github.com/atindramardikar" style="font-size: 12px" target="_blank">github.com/atindramardikar</a></li>
+                    <li class="twitter"><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/profile.php?id=610762767" target="_blank">Atindra Mardikar</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item">
+                    <h4 class="degree">MS in Computer Science</h4>
+                    <h5 class="meta">Northeastern University</h5>
+                    <h5 class="meta">Boston, MA</h5>
+                    <div class="time">Sept 2015 - Dec 2017</div>
+                </div><!--//item-->
+                <div class="item">
+                    <h4 class="degree">BE in Computer Science</h4>
+                    <h5 class="meta">Shri Ramdeobaba College of Engineering</h5>
+                    <h5 class="meta">Nagpur, India</h5>
+                    <div class="time">Jul 2011 - May 2015</div>
+                </div><!--//item-->
+            </div><!--//education-container-->
+            
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>English <span class="lang-desc">(Professional)</span></li>
+                    <li>Marathi <span class="lang-desc">(Native)</span></li>
+                    <li>Hindi <span class="lang-desc">(Professional)</span></li>
+                </ul>
+            </div><!--//interests-->
+            
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>Soccer</li>
+                    <li>Console Gaming</li>
+                    <li>Music</li>
+                </ul>
+            </div><!--//interests-->
+            
+        </div><!--//sidebar-wrapper-->
 
-        <nav class="navbar navbar-inverse navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+        <!---->
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
+                <div class="summary">
+                    <p>An enthusiast, team-player and a leader, I am a self-motivated individual who is keen to learn new technologies and explore new things.
+
+                        <br><br>I have developed strong programming skills in various languages specifically in Java, JavaScript, C# being a Computer Science graduate student at Northeastern University. The coursework at Northeastern University has helped me develop skills in field of Algorithms, Information Retrieval, Big Data and Software Development.
+
+                        <br><br>On my last experience as a software Engineering Co-op at Philips Healthcare where I was part of the R&D team I learned developing user-friendly solutions on time and in budget. I was part of the team which were the first to implement cloud solutions for the most profitable business unit within Philips.
+
+                        <br><br>During my internship (May-Aug 2016) at ScoutDay, a baseball scouting and recruiting based startup, I was the lead backend developer for the company's website where I built a platform on top of MEAN stack technology. I helped the company secure its initial investment.
+
+                        <br><br>All of the academic and work experience have helped me gain extensive knowledge in various technologies and platforms. I wish to continue and grow my career in the field of computer science more specifically Software Development.
+
+                        <br><br>Specialities: Computer Science, Algorithms, Software Development, Web Development, Team Player</p>
+                </div><!--//summary-->
+            </section><!--//section-->
+            
+
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Software Engineering Co-op(R&D)</h3>
+                            <div class="time">Jan 2017 - Aug 2017</div>
+                        </div><!--//upper-row-->
+                        <div class="company">Philips Healthcare, Andover, MA</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                        <ul>
+                            <li>Part of the R&D Team of the most profitable Business Unit within Philips.</li>
+                            <li>Built a service to collect and send critical patient data to AWS S3 to provide cloud analytics solutions.</li>
+                            <li>Designed cloud-based framework for various projects under Patient Monitoring that enables predictive analytics for multiple
+                                connected healthcare applications, migrated on-prem SQL storage to more flexible cloud storage.</li>
+                            <li>Implemented a complex Hadoop ecosystem architecture that aims to process 1TB per day of critical patient data. </li>
+                            <li>Executed complex system load test, performance and memory tuning for heavy incoming payloads in Big data framework. </li>
+                            <li>Designed and developed tool to connect local machine to remote Hadoop cluster to allow execution of custom HQL statements for visualization of the patient data through a user-friendly UI.</li>
+                            <li>Developed a service connecting multiple devices to collect device data in a multi-tenant architecture using AWS IoT.</li>
+                            <li>Performed user acceptance and regression testing for the beta release of the IoT service.</li>
+                            <li>Designed and developed a web application using Angular4 and Java SpringBoot that enabled effective data visualizations and pattern recognition of health device data across entire population to uncover insights and find concrete care solutions.</li>
+                            <li>Created fully automated CI build and deployment infrastructure and processes using Jenkins and Nexus for multiple projects.</li>
+                        </ul>
+                        </p>
+                    </div><!--//details-->
+
+                    <div class="container bootstrap snippet">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row testimonials">
+                                    <div class="col-sm-4">
+                                        <blockquote>
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                            <p class="clients-words">Atindra is a very smart and dedicated engineer with innovate solution to a complex problem. He showed his problem solving skill during the performance benchmark to scale the Hadoop cluster. Atindra has strong technical skills in MVC using Angular/Spring and became a go-to person in very short time for any Angular related questions. He is eager to learn new technology and i found him easy to work with. He is a great team player and I strongly recommend Atindra.<br><br><br></p>
+                                            <span class="clients-name text-primary">— <a href="https://www.linkedin.com/in/adityasirohi/">Aditya Sirohi</a> <br> &nbsp;&nbsp;&nbsp;&nbsp;Senior Architect Philips</span>
+                                            <img class="img-circle img-thumbnail">
+                                        </blockquote>
+                                    </div>
+
+                                </div><!--/.row-->
+                            </div><!--/.col-->
+                        </div><!--/.row-->
+                    </div>
+
+
+                </div><!--//item-->
+                
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Software Engineer</h3>
+                            <div class="time">May 2016 - Aug 2016</div>
+                        </div><!--//upper-row-->
+                        <div class="company">ScoutDay, Cambridge, MA</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            <ul>
+                            <li>Worked as a backend engineer for the company's website which was built on MEAN stack technology.</li>
+                        <li>Developed user interaction and features and connected to a database on the server to store the user information.</li>
+                        <li>Created RESTful endpoints (connect client and server) to store, retrieve and update user information.</li>
+                        <li>Developed RESTful API using NodeJS promises for performing various operations on the user data.</li>
+                        <li>Integrated various third party APIs like Google Maps API, Stripe API with the platform.</li>
+                        <li>Implemented technologies including NodeJS with Express framework, AngularJS, HTML5, CSS3, Bootstrap , mongoose - Mongo DB, Grunt, PassportJS, MomentJS etc</li>
+                        <li>Helped the company secure initial investment.</li>
                     </ul>
-                </div>
-            </div>
-        </nav>
+                        </p>
+                    </div><!--//details-->
 
+                    <div class="container bootstrap snippet">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row testimonials">
+                                    <div class="col-sm-4">
+                                        <blockquote>
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                            <p class="clients-words">Atindra gave ScoutDay an incredible effort. He brought his talent as a developer and consistency as a valuable asset to the company. He came in talented but he was not afraid to open his mind to learn. I am confident that he leaves experienced and more seasoned and is ready to tackle any role he is being considered for.<br><br><br></p>
+                                            <span class="clients-name text-primary">— <a href="https://www.linkedin.com/in/alex-tuccio-6797b867/">Alex Tuccio</a> <br> &nbsp;&nbsp;&nbsp;&nbsp;Founder/CEO ScoutDay</span>
+                                            <img class="img-circle img-thumbnail" src="assets/images/alex.jpg">
+                                        </blockquote>
+                                    </div>
+
+                                </div><!--/.row-->
+                            </div><!--/.col-->
+                        </div><!--/.row-->
+                    </div>
+
+
+                </div><!--//item-->
+
+
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Master Assistant</h3>
+                            <div class="time">Jan 2016 - May 2016</div>
+                        </div><!--//upper-row-->
+                        <div class="company">Northeastern University, Boston,MA</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            <ul>
+                        <li>Assisted Professor Panagiotis Manolios, Kenneth Baclawski, David Spraugue for the course Logic and computation(CS 2800).</li>
+                          <li>My job included Conducting tutoring classes, assisting students in lab sessions and grading assignments.</li>
+                    </ul>
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                
+            </section><!--//section-->
+            
+            <section class="section projects-section">
+                <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+                <div class="item">
+                    <span class="project-title"><a>Bird Classifier</a></span>
+                    <br><span class="project-tagline">Read, partitioned, trained and tested the bird dataset for binary classification using Spark (MLlib).</span>
+                    <br><span class="project-tagline">Predicted unlabelled data using the built classifier with prediction accuracy of more than 80%.</span>
+
+                </div><!--//item-->
+
+                <div class="item">
+                    <span class="project-title"><a href="/project/client">Event Scheduler <i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+                    <br><span class="project-tagline">A MEAN stack single page application to schedule events and maintain calendars.</span>
+                    <br><span class="project-tagline">Users could organize events and share them for others to join and also administer their events.</span>
+
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a>Sentiment Analysis on Movie Reviews</a></span>
+                    <br><span class="project-tagline">Trained and tested a	Naïve	Bayes	classifier	for	differentiating	movie reviews	as positive and negative.</span>
+                    <br><span class="project-tagline">Implemented	a	bigram	language	model	in	order to	incorporate	word association for	larger effectiveness.</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a>Mini Search Engine</a></span>
+                    <br><span class="project-tagline"> Implemented indexing and retrieval on the collection of abstracts from the Communications of the ACM (tccorpus) using JAVA and Lucene API.</span>
+                    <br><span class="project-tagline">Tokenised the Document and created an inverted index.</span>
+                    <br><span class="project-tagline"> Implemented the BM-25 Algorithm on the queries entered by the user to display top raked documents for the given query.</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a>Healthmate</a></span>
+                    <br><span class="project-tagline"> A clinical support system that connects Doctors, Patients and Medical Stores with a centralised database.
+The complete process of medical treatment was managed from a centralised database.(MySQL)
+A patient could take an appointment to a particular doctor. <br>
+The doctor could view his appointments and medical history of patients and provide prescription. The medical store owner could see the medicines prescribed.
+All the interfaces were designed for a desktop-based application(JAVA) and a web-based application (HTML, CSS, Javascript)</span>
+                </div><!--//item-->
+            </section><!--//section-->
+            
+            <section class="skills-section section">
+                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                <div class="skillset">        
+                    <div class="item">
+                        <h3 class="level-title">JAVA</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="98%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">C#</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="98%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">Javascript &amp; jQuery</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="98%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">Angular4</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="98%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">HTML5 &amp; CSS3</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="98%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+
+                    <div class="item">
+                        <h3 class="level-title">AWS</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="95%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Hadoop</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="93%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Spark</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="93%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">NodeJS</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="90%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">Database</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="90%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    <div class="item">
+                        <h3 class="level-title">Maven/Jenkins/Nexus</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="87%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Github/TFS</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="87%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+                    
+                    <div class="item">
+                        <h3 class="level-title">C/C++</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="65%">
+                            </div>                                      
+                        </div><!--//level-bar-->                                 
+                    </div><!--//item-->
+                    
+                </div>  
+            </section><!--//skills-section-->
+            
+        </div><!--//main-body-->
     </div>
-</div>
-
-
-<!-- Carousel
-================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1 style="font-size: 50px"><strong>ATINDRA MARDIKAR</strong></h1>
-                    <p style="font-size: 20px">Graduate Student | Masters Assistant <br><em> College of Computer and information Sciences</em><br><em>Northeastern University</em></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- /.carousel -->
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Assignment</h2>
-            <p> Assignment done for the course Web Development (CS5610).The goal is to develop a complete MEAN stack web-based <strong>Form-Maker</strong> application.</p>
-            <p><a class="btn btn-default" href="assignment/client" role="button">Visit link &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Project</h2>
-            <p>Project done for the course Web Development (CS5610).The goal is to develop a complete MEAN stack web-based <strong>Event Scheduler</strong> application.</p>
-            <p><a class="btn btn-default" href="project.html" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Github</h2>
-            <p>Here is a link to all my projects and assignments on Github</p>
-            <p><a class="btn btn-default" href="https://github.com/atindramardikar" role="button">Visit Github &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-
-
-    <!-- START THE FEATURETTES -->
-
-
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+    <footer class="footer">
+        <div class="text-center">
+                <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>2016 Atindra Mardikar
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
+    <!-- custom js -->
+    <script type="text/javascript" src="assets/js/main.js"></script>            
 </body>
 </html>
