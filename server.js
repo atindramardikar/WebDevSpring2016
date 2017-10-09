@@ -22,7 +22,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
         process.env.OPENSHIFT_APP_NAME;
 }
 // connect to the database
-mongoose.connect(connectionString);
+mongoose.connect(connectionString, {useMongoClient : true});
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
