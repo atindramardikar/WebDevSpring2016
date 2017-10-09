@@ -40,7 +40,7 @@ var uuid= require('node-uuid');
 
 app.use(express.static(__dirname + '/Public'));
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var port = process.env.PORT || 3000;
 app.get('/hello', function(req, res){
     res.send('hello world');
 });
@@ -51,4 +51,6 @@ app.get('/env', function(req, res){
 require("./Public/assignment/server/app.js")(app, null, mongoose);
 require("./Public/project/server/app.js")(app,  null, mongoose, uuid);
 
-app.listen(port, ipaddress);
+app.listen(port, function(){
+    console.log('listening to..',port);
+});
